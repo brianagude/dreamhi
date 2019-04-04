@@ -1,0 +1,31 @@
+<h1>Checkout</h1>
+
+Total number of items: <%= @order.order_items.size %>
+
+<%= simple_form_for @order do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+
+  <%= f.input :email %>
+
+  <%= f.input :address_1 %>
+  <%= f.input :address_2 %>
+  <%= f.input :unit %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :country %>
+  <%= f.input :postal %>
+
+  <div id='card-errors'></div>
+  <div id='card'></div>
+
+  <%= f.button :submit, 'Sumbit Order'%>
+<% end %>
+
+<script>
+  var stripe = Stripe('<%=Rails.application.credentials.stripe_public_key%>')
+  var elements = stripe.elements()
+
+
+
+</script>

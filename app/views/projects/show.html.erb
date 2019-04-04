@@ -1,0 +1,13 @@
+<h2><%= @project.title%></h2>
+<%= image_tag @project.image_1.url%>
+<% if @project.image_3.present? %>
+  <%= image_tag @project.image_3.url %>
+<% end %>
+<% if @project.image_4.present? %>
+  <%= image_tag @project.image_4.url %>
+<% end %>
+<% if @project.image_5.present? %>
+  <%= image_tag @project.image_5.url %>
+<% end %>
+<p><%= simple_format @project.description %></p>
+<p><%= link_to "back to all projects", projects_path %></p>

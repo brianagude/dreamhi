@@ -1,0 +1,27 @@
+<section class='product-show'>
+  <div class='product_images'>
+    <%= image_tag @product.image_1.url%>
+    <% if @product.image_3.present? %>
+      <%= image_tag @product.image_3.url %>
+    <% end %>
+    <% if @product.image_4.present? %>
+      <%= image_tag @product.image_4.url %>
+    <% end %>
+    <% if @product.image_5.present? %>
+      <%= image_tag @product.image_5.url %>
+    <% end %>
+  </div>
+  <div class='product_info'>
+    <h3><%= @product.title%></h3>
+    <div>
+      <h4>Description</h4>
+      <p><%= simple_format @product.description %></p>
+    </div>
+    <%= simple_form_for [@product, @order_item] do |f|%>
+      <%= f.input :quantity %>
+      <%= f.button :submit, 'Add to Cart'%>
+    <% end %>
+    <p><%= link_to "back to all products", products_path %></p>
+  </div>
+
+  </section>

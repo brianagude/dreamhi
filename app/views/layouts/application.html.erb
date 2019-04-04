@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dreamhi</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <%= favicon_link_tag asset_path('logo-globe.png'), :rel => 'icon', :type =>  'image/png' %>
+    <%= stylesheet_link_tag 'application', media: 'all'%>
+  </head>
+
+  <body>
+    <header>
+      <div class='project-filters'>
+        <%= link_to image_tag('logo-globe.png'), root_path, class: "logo btn"%>
+        <%= link_to image_tag('camera.png'), '#', :'data-filter' => 'photography', class: "btn"%>
+        <%= link_to image_tag('paint.png'), '#', :'data-filter' => 'design', class: "btn"%>
+        <%= link_to image_tag('album.png'), '#', :'data-filter' => 'archives', class: "btn"%>
+        <%= link_to image_tag('people.png'), info_path , class: "btn"%>
+        <%= link_to image_tag('shopping-bag.png'), shop_path, class: "btn"%>
+      </div>
+      <div class='search-cart'>
+        <%= link_to image_tag('search.png'), root_path, class: "search btn"%>
+        <%= link_to cart_path do %>
+          <div class='cart'>
+            <%= @current_cart.total_quantity %>
+          </div>
+        <% end %>
+      </div>
+    </header>
+
+    <% if flash[:success].present? %>
+      <div class='success'>
+        <%= flash[:success]%>
+      </div>
+    <% end %>
+
+    <%= yield %>
+    <%= javascript_include_tag 'application' %>
+  </body>
+</html>

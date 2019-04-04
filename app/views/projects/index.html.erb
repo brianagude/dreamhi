@@ -1,0 +1,14 @@
+<section class='background-text'>
+  <%=image_tag 'logo-basic.png'%>
+  <h2>We provide brand consulting and merchandising for artists.</h2>
+</section>
+
+<section class="projects-home">
+
+      <% @projects.each do |project| %>
+        <%= link_to project_path(project) do %>
+          <%= image_tag project.image_1.url, :class => "prjct-btn" %>
+        <% end %>
+      <% end %>
+    
+</section>

@@ -1,0 +1,7 @@
+<section class="products-home">
+  <% @products.each do |product| %>
+    <%= link_to product_path(product) do %>
+      <%= image_tag product.image_1.url, :class => "prdct-btn" %>
+    <% end %>
+  <% end %>
+</section>
