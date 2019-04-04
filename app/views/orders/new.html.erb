@@ -23,7 +23,7 @@ Total number of items: <%= @order.order_items.size %>
 <% end %>
 
 <script>
-  var stripe = Stripe('<%=Rails.application.credentials.stripe_public_key%>')
+  var stripe = Stripe('<%= Rails.application.credentials[Rails.env.to_sym][:stripe_public_key] %>')
   var elements = stripe.elements()
 
 
