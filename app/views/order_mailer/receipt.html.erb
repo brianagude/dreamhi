@@ -1,0 +1,9 @@
+<h1> Thank you for shopping with us <%=@order.first_name%>!</h1>
+
+<p>
+  Order ID: <%= @order.id %>
+</p>
+
+<p>
+  Total price: <%= number_to_currency @order.total_price_in_dollars %>
+</p>
