@@ -14,6 +14,7 @@
   position: relative;
   display: inline-block;
   text-decoration: none;
+  // padding: 4px;
   // border-radius: 5px;
   background: #fff;
   text-align: center;
@@ -134,6 +135,10 @@ header {
   }
 }
 
+// .btn {
+//   @include btn();
+// }
+
 div.container {
   // background-color: green;
   // width: 90%;
@@ -219,5 +224,44 @@ section.product-show {
       position: relative;
       top: 0px;
     }
+  }
+}
+
+footer {
+  padding: 8px;
+  width: 100vw;
+  height: 100px;
+  @include flex(space-between);
+  align-items: flex-end;
+  flex-wrap: nowrap;
+
+  div {
+    width: 33.333%;
+    height: auto;
+
+    nav a {
+      @include btn();
+      padding: 4px;
+      margin: 0 4px;
+    }
+
+    input {
+      @include btn();
+      padding: 4px;
+    }
+
+    input[type="text"] {
+      width: 50px;
+    }
+  }
+
+  div.copyright {
+    p,
+    a {
+      margin: none;
+      background: blue;
+    }
+
+    height: 20px;
   }
 }

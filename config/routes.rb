@@ -12,9 +12,12 @@ Rails.application.routes.draw do
 
 
 
-  
+
   get 'info', to: 'projects#info'
   get 'shop', to: 'products#index'
+  get 'photography', to: 'projects#photography'
+  get 'archives', to: 'projects#archives'
+  get 'design', to: 'projects#design'
 
   root 'projects#index'
 end

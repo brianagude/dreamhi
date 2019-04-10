@@ -1,1 +1,7 @@
-<h2>Info Page</h2>
+<section class="projects-home">
+  <% @team.each do |project| %>
+    <%= link_to project_path(project) do %>
+      <%= image_tag project.image_1.url, :class => "prjct-btn" %>
+    <% end %>
+  <% end %>
+</section>

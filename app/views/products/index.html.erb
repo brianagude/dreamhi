@@ -1,7 +1,11 @@
 <section class="products-home">
   <% @products.each do |product| %>
+  <div class='product'>
     <%= link_to product_path(product) do %>
-      <%= image_tag product.image_1.url, :class => "prdct-btn" %>
+        <%= image_tag product.image_1.url, :class => "prdct-btn" %>
+        <h4><%= product.title%></h4>
+        <p><%= number_to_currency product.price%></p>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </section>
