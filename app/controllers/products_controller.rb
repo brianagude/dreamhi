@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @prev = Product.where("id < ?", params[:id]).order(:id).last
+    @next = Product.where("id > ?", params[:id]).order(:id).first
+
     @order_item = @current_cart.order_items.find_by(product: @product)
 
     if @order_item.nil?

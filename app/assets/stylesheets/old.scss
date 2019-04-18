@@ -44,16 +44,16 @@ html {
 }
 
 body {
+  // margin-top: 100px;
   background-color: white;
   font-family: "Karla", sans-serif;
   font-weight: 400;
   line-height: 1.45;
   color: #333;
-  margin: 96px 24px 0 24px;
 }
 
 p {
-  // margin-bottom: 1.25em;
+  margin-bottom: 1.25em;
 }
 
 h1,
@@ -61,9 +61,9 @@ h2,
 h3,
 h4,
 h5 {
-  // margin: 1.75rem 0 1rem;
+  margin: 2.75rem 0 1rem;
   font-family: "TeXGyreAdventorRegular";
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.15;
 }
 
@@ -73,11 +73,6 @@ a {
   color: #000;
   padding: 0;
   margin: 0;
-
-  &:hover {
-    color: black;
-    text-decoration: none;
-  }
 }
 
 h1 {
@@ -106,14 +101,6 @@ small,
   font-size: 0.75em;
 }
 
-.btn {
-  @include btn();
-
-  img {
-    height: 24px;
-  }
-}
-
 header {
   @include flex(space-between);
   position: fixed;
@@ -126,35 +113,46 @@ header {
 
   z-index: 5;
 
-  .logo img {
-    height: 36px;
-  }
+  div {
+    display: inline-flex;
+    align-items: center;
 
-  .search-cart {
-    @include flex(flex-end);
-    flex-wrap: nowrap;
-  }
+    .btn img,
+    .cart {
+      // @include btn();
+      height: 48px;
+      padding: 8px;
+      // margin: 4px;
+    }
 
-  .cart {
-    height: 48px;
-    width: 48px;
-    @include flex(center);
+    .cart {
+      width: 48px;
+      @include flex(center);
+    }
+
+    .logo img {
+      height: 64px;
+    }
   }
 }
 
-section {
-  // margin: 120px 0;
-  min-height: 100vh;
-  width: 100%;
+// .btn {
+//   @include btn();
+// }
+
+div.container {
+  // background-color: green;
+  // width: 90%;
+  // height: 100%;
+  // // padding: 0 20px;
+  // margin: auto;
 }
 
-.container {
-  margin: 0;
-  padding: 0;
+.btn {
+  @include btn();
 }
 
-.background-text {
-  margin: 120px 0;
+section.background-text {
   h2 {
     font-family: "Karla", sans-serif;
     font-weight: bold;
@@ -176,129 +174,63 @@ section {
   z-index: -5;
 }
 
-.projects {
+.prjct-btn,
+.prdct-btn {
+  margin: 4px;
+  // @include btn();
+}
+
+section.projects-home {
   @include flex(center);
   flex-wrap: wrap;
 
-  margin-top: 50vh;
+  margin-top: 90vh;
   padding: 0 20px;
   height: 100%;
   width: 100%;
 
   img {
     @include btn();
-    border: none;
     height: 40vh;
     margin: 32px;
-    padding: 0;
   }
 }
 
-.card {
-  position: fixed;
-  // width: 336px;
-  padding: 32px 16px;
-  border: 4px solid black;
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 5px;
-  background: #fff;
-  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
-}
-
-.strike {
-  border: 4px solid black;
-  padding: 4px;
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 5px;
-  background: #fff;
-  top: 4px;
-}
-
-.flex {
-  @include flex(flex-start);
-
-  img {
-    width: 80%;
-  }
-}
-
-.products {
-  // @include flex(flex-start);
-  // padding: 24px;
-  // align-items: flex-start;
-  // flex-wrap: wrap;
-  min-height: 100vh;
-  // width: 80%;
-  margin: 120px auto 120px auto;
-}
-
-.product {
+section.product-show {
   @include flex(center);
-  margin: 24px 0;
-  h5,
-  p,
-  a {
-    text-align: center;
-  }
-  img {
-    height: 250px;
-    width: auto;
-  }
-}
+  height: 100%;
+  width: calc(100vw-40px);
+  margin: 120px 20px;
 
-div.flash-success {
-  background: black;
-  color: white;
-  padding: 10px 20px 10px 20px;
-}
-
-table {
-  width: 100%;
-
-  th {
-    text-align: left;
+  div {
+    height: 100%;
   }
 
-  th,
-  td {
-    vertical-align: middle;
+  div.product_images {
+    width: 60%;
+
+    img {
+      width: 560px;
+    }
   }
 
-  thead th {
-    border-bottom: 1px solid grey;
-    padding: 0 0 10px 0;
-  }
+  div.product_info {
+    @include btn();
+    @include flex(flex-start);
+    // align-items: flex-start;
+    flex-wrap: wrap;
 
-  tbody th,
-  tbody td {
-    padding: 10px 0 10px 0;
-  }
+    padding: 16px;
+    width: 25%;
 
-  td img {
-    margin: 0 10px 0 0;
-    vertical-align: middle;
+    &:hover,
+    &:active {
+      box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
+      position: relative;
+      top: 0px;
+    }
   }
 }
 
 footer {
-  height: auto;
-  padding: 20px;
-  width: 100%;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-
-  div {
-    padding: 0;
-    height: 100%;
-    h5 {
-      margin: 0 0 4px 0;
-    }
-  }
 }

@@ -24,7 +24,7 @@
       <div class='search-cart'>
         <%= link_to image_tag('search.png'), root_path, class: "search btn"%>
         <%= link_to cart_path do %>
-          <div class='cart'>
+          <div class='cart btn'>
             <%= @current_cart.total_quantity %>
           </div>
         <% end %>
@@ -39,25 +39,25 @@
 
     <%= yield %>
     <footer>
-      <div class='contact'>
-        <h5>Stay In Touch</h5>
-        <nav>
-          <%= link_to "Instagram", "https://www.instagram.com/dreamhiiii/", target: '_blank', class: "btn"%>
-          <%= link_to "Twitter", "https://www.twitter.com/dreamhiiii/", target: '_blank', class: "btn"%>
-        </nav>
-      </div>
-      <div class='copyright'>
-        <p>Copyright Dreamhi LLC</p>
-        <p><%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%></p>
-      </div>
-      <div class='sign-up'>
-        <h5>Stay Updated</h5>
-        <form action="https://formspree.io/info@dreamhi.com" method="POST">
-          <!-- <input type="text" name="name" placeholder="What's your name?"> -->
-          <input type="email" name="_replyto" placeholder="What's Your Email?">
-          <input type="submit" value="Send">
-        </form>
-      </div>
+          <div>
+            <h5>Stay In Touch</h5>
+            <nav>
+              <%= link_to "Instagram", "https://www.instagram.com/dreamhiiii/", target: '_blank', class: "btn"%>
+              <%= link_to "Twitter", "https://www.twitter.com/dreamhiiii/", target: '_blank', class: "btn"%>
+            </nav>
+          </div>
+          <div>
+            <p>Copyright Dreamhi LLC</p>
+            <p><%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%></p>
+          </div>
+          <div>
+            <h5>Stay Updated</h5>
+            <form action="https://formspree.io/info@dreamhi.com" method="POST">
+              <!-- <input type="text" name="name" placeholder="What's your name?"> -->
+              <input type="email" name="_replyto" placeholder="What's Your Email?" class="btn">
+              <input type="submit" value="Send" class="btn">
+            </form>
+          </div>
     </footer>
     <%= javascript_include_tag 'application' %>
   </body>

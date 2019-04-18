@@ -5,6 +5,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @prev = Project.where("id < ?", params[:id]).order(:id).last
+    @next = Project.where("id > ?", params[:id]).order(:id).first
   end
 
   def info

@@ -3,10 +3,10 @@
   <h2>We provide brand consulting and merchandising for artists.</h2>
 </section>
 
-<section class="projects-home">
+<section class="projects">
   <% @projects.each do |project| %>
-    <%= link_to project_path(project) do %>
-      <%= image_tag project.image_1.url, :class => "prjct-btn" %>
-    <% end %>
+      <%= link_to project_path(project) do %>
+        <%= image_tag project.image_1.url %>
+      <% end %>
   <% end %>
 </section>
