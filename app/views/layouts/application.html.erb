@@ -12,6 +12,7 @@
   </head>
 
   <body>
+
     <header>
       <div class='project-filters'>
         <%= link_to image_tag('logo-globe.png'), root_path, class: "logo btn"%>
@@ -19,10 +20,10 @@
         <%= link_to image_tag('paint.png'), root_path(is_design: true), class: "btn"%>
         <%= link_to image_tag('album.png'), root_path(is_archived: true), class: "btn"%>
         <%= link_to image_tag('people.png'), info_path , class: "btn"%>
-        <%= link_to image_tag('shopping-bag.png'), shop_path, class: "btn"%>
+
       </div>
       <div class='search-cart'>
-        <%= link_to image_tag('search.png'), root_path, class: "search btn"%>
+        <%= link_to image_tag('shopping-bag.png'), shop_path, class: "btn"%>
         <%= link_to cart_path do %>
           <div class='cart btn'>
             <%= @current_cart.total_quantity%>
@@ -60,6 +61,7 @@
             </form>
           </div>
     </footer>
+    <!-- <div class="background"></div> -->
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

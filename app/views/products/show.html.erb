@@ -26,10 +26,16 @@
             <p><%= simple_format @product.description %></p>
           </div><br />
           <%= simple_form_for [@product, @order_item] do |f|%>
+          <div class="col-md-6">
             <%= f.input :size, collection: ["XS", "S", "M","L","XL"], required: true %>
+          </div>
+          <div class="col-md-6">
             <%= f.input :quantity, collection: ["1", "2", "3","4","5"] %>
+          </div>
+          <div class="col-md-12">
             <%= f.button :submit, 'Add to Cart'%>
           <% end %>
+          </div>
         </div>
       </div>
     </div>

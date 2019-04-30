@@ -1,7 +1,9 @@
 <section class="cart">
+  <div class="card big">
   <h2>Your Cart</h2>
 
   <% if @current_cart.order_items.any? %>
+
 
   <table>
     <thead>
@@ -53,8 +55,9 @@
 
 
 
+
   <% else %>
     <p class="empty">There are no items in your cart</p>
   <% end %>
-
+  </div>
 </section>

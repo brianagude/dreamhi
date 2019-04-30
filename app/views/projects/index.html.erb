@@ -1,4 +1,14 @@
-<section class='intro'>
+
+<% if @design.present? %>
+   <section class='none'>
+<% elseif @photography.present? %>
+    <section class='none'>
+<% elseif @archive.present? %>
+    <section class='none'>
+<% else %>
+   <section class='intro'>
+<% end %>
+
   <div>
     <%= link_to image_tag('logo-full.png'), shop_path, class: "btn button"%>
     <h4>Take A Chance</h4>
