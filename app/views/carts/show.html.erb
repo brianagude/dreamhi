@@ -1,14 +1,16 @@
 <section class="cart">
-  <h2>Cart</h2>
+  <h2>Your Cart</h2>
 
   <% if @current_cart.order_items.any? %>
 
   <table>
     <thead>
       <tr>
-        <th>Item</th>
-        <th>Price</th>
-        <th>Qty</th>
+        <th><h5>Item</h5></th>
+        <th><h5>Price</h5></th>
+        <th><h5>Size</h5></th>
+        <th><h5>Qty</h5></th>
+        <th></th>
         <th></th>
       </tr>
     </thead>
@@ -19,14 +21,13 @@
             <%= image_tag item.product.image_1.thumb.url, width: "50" %>
             <%= item.product.title %>
           </td>
-          <td><%= number_to_currency item.product.price_in_dollars %></td>
-          <td>
-            <%= simple_form_for [item.product, item] do |f| %>
-              <%= f.input :quantity, label: false %>
+          <td><%= number_to_currency item.product.price, precision: 0 %></td>
+          <%= simple_form_for [item.product, item] do |f| %>
+            <td><%= f.input :size, collection: ["XS", "S", "M","L","XL"], label: false, required: true %></td>
+            <td><%= f.input :quantity, label: false, collection: ["1", "2", "3","4","5"] %></td>
+            <td><%= f.button :submit, "Update" %></td>
+          <% end %>
 
-              <%= f.button :submit, "Update quantity" %>
-            <% end %>
-          </td>
           <td>
             <%= link_to "Remove", product_order_item_path(item.product, item), method: :delete %>
           </td>
@@ -34,15 +35,21 @@
 
       <% end %>
     </tbody>
+    <tfoot>
+      <tr>
+        <th><h5>Total: <%= number_to_currency @current_cart.total_price, precision: 0 %></h5></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </tfoot>
   </table>
 
-  <p>
-    Total: <%= number_to_currency @current_cart.total_price_in_dollars %>
-  </p>
 
-  <p>
     <%= link_to "Continue to checkout", new_order_path %>
-  </p>
+
 
 
 

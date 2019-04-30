@@ -2,7 +2,7 @@ ActiveAdmin.register Project do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :title, :image_1, :image_2, :image_3, :image_4, :image_5, :description, :is_archived, :artist, :photography, :design, :is_team_member
+permit_params :title, :image_1, :image_2, :image_3, :image_4, :image_5, :description, :is_archived, :artist, :is_photography, :is_design, :is_team_member
 
 index do
   selectable_column
@@ -11,10 +11,10 @@ index do
     image_tag project.image_1.thumb.url, width: '50'
   end
   column :title
-  column :price
+  # column :price
   column :artist
-  column "Phorography", :photography
-  column "Design", :design
+  column "Phorography", :is_photography
+  column "Design", :is_design
   column "Archived", :is_archived
   column "Team Member", :is_team_member
   actions
@@ -26,8 +26,8 @@ form title: 'Project Info' do |f|
       input :artist
       input :description
       input :is_archived, label: 'Archive'
-      input :photography, label: 'Photography'
-      input :design, label: 'Design'
+      input :is_photography, label: 'Photography'
+      input :is_design, label: 'Design'
       input :is_team_member, label: 'Team Member'
     end
 

@@ -19,7 +19,7 @@ class Order < ApplicationRecord
 
   def save_and_charge
     if self.valid?
-      Stripe.api_key = Rails.application.credentials[Rails.env.to_sym][:stripe_secret_key]
+
       Stripe::Charge.create(amount: self.total_price, currency: "usd",
         source: self.stripe_token, description: "Order for " + self.email)
 

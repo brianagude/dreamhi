@@ -1,7 +1,27 @@
-<section class="projects">
-  <% @team.each do |project| %>
-    <%= link_to project_path(project) do %>
-      <%= image_tag project.image_1.url, :class => "btn" %>
-    <% end %>
-  <% end %>
+<section class="projects info team">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" style="margin-bottom: 120px;">
+        <%= image_tag("logo-full.png", :alt => "DREAMHI", class: "logo") %>
+        <h3>Drēm/Hī/</h3>
+        <h4>Take A Chance</h4><br />
+        <p>DreamHi is a creative brand consulting agency and apparel brand. Our team helps build artist brands by providing marketing consulting that is a custom fit for each artist’s needs. With our experience in the global music and fashion industries, we analyze strengths and weaknesses and put forward a plan toward reaching the artist’s brand dreams. </p><br />
+        <p>Our apparel brand offers tour merchandising which includes concept, design, and production. </p><br />
+        <p>The DreamHi team works with artists to create honest and authentic products that provide the perfect connection between fans and artists. All merchandise is created with in-house graphics, photography, and designers. </p>
+        </div>
+        <div class="col-md-12" style="margin-bottom: 120px;">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/c5rYRNV-sl0" controls="0" frameborder="0" autoplay="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <!-- <div><h4>Who Are We?</h4></div> -->
+        <% @projects.each do |project| %>
+          <div class="col-md-4">
+            <%= image_tag project.image_1.url, :class => "btn" %>
+            <h4 style="text-align: center"><%= project.artist %></h4>
+            <h5 style="text-align: center"><%= project.title %></h5>
+            <p style="text-align: center"><%= project.description%></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
 </section>

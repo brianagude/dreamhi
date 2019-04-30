@@ -15,9 +15,9 @@
     <header>
       <div class='project-filters'>
         <%= link_to image_tag('logo-globe.png'), root_path, class: "logo btn"%>
-        <%= link_to image_tag('camera.png'), photography_path, class: "btn"%>
-        <%= link_to image_tag('paint.png'), design_path, class: "btn"%>
-        <%= link_to image_tag('album.png'), archives_path, class: "btn"%>
+        <%= link_to image_tag('camera.png'), root_path(is_photography: true), class: "btn"%>
+        <%= link_to image_tag('paint.png'), root_path(is_design: true), class: "btn"%>
+        <%= link_to image_tag('album.png'), root_path(is_archived: true), class: "btn"%>
         <%= link_to image_tag('people.png'), info_path , class: "btn"%>
         <%= link_to image_tag('shopping-bag.png'), shop_path, class: "btn"%>
       </div>
@@ -25,7 +25,7 @@
         <%= link_to image_tag('search.png'), root_path, class: "search btn"%>
         <%= link_to cart_path do %>
           <div class='cart btn'>
-            <%= @current_cart.total_quantity %>
+            <%= @current_cart.total_quantity%>
           </div>
         <% end %>
       </div>
@@ -38,6 +38,7 @@
     <% end %>
 
     <%= yield %>
+    <!-- <div class="background"></div> -->
     <footer>
           <div>
             <h5>Stay In Touch</h5>
@@ -46,7 +47,7 @@
               <%= link_to "Twitter", "https://www.twitter.com/dreamhiiii/", target: '_blank', class: "btn"%>
             </nav>
           </div>
-          <div>
+          <div class="bri">
             <p>Copyright Dreamhi LLC</p>
             <p><%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%></p>
           </div>

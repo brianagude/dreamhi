@@ -1,6 +1,22 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    @photography = params[:is_photography]
+    @design = params[:is_design]
+    @archive = params[:is_archived]
+
+    if @design.present?
+      @projects = Project.where(is_design: true)
+    end
+
+    if @photography.present?
+      @projects = Project.where(is_photography: true)
+    end
+
+    if @archive.present?
+      @projects = Project.where(is_archived: true)
+    end
+
   end
 
   def show
@@ -10,19 +26,7 @@ class ProjectsController < ApplicationController
   end
 
   def info
-    @team = Project.where(is_team_member: true)
-  end
-
-  def design
-    @projects = Project.where(design: true)
-  end
-
-  def photography
-    @projects = Project.where(photography: true)
-  end
-
-  def archives
-    @projects = Project.where(is_archived: true)
+    @projects = Project.where(is_team_member: true)
   end
 
 end

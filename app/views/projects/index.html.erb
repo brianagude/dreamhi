@@ -1,12 +1,39 @@
-<section class='background-text'>
-  <%=image_tag 'logo-basic.png'%>
-  <h2>We provide brand consulting and merchandising for artists.</h2>
+<section class='intro'>
+  <div>
+    <%= link_to image_tag('logo-full.png'), shop_path, class: "btn button"%>
+    <h4>Take A Chance</h4>
+  </div>
 </section>
 
 <section class="projects">
   <% @projects.each do |project| %>
       <%= link_to project_path(project) do %>
-        <%= image_tag project.image_1.url %>
+        <%= image_tag project.image_1.medium.url %>
+      <% end %>
+
+      <% if project.image_2.present? %>
+        <%= link_to project_path(project) do %>
+          <%= image_tag project.image_2.medium.url %>
+        <% end %>
+      <% end %>
+      <% if project.image_3.present? %>
+        <%= link_to project_path(project) do %>
+          <%= image_tag project.image_3.medium.url %>
+        <% end %>
+      <% end %>
+      <% if project.image_4.present? %>
+        <%= link_to project_path(project) do %>
+          <%= image_tag project.image_4.medium.url %>
+        <% end %>
+      <% end %>
+      <% if project.image_5.present? %>
+        <%= link_to project_path(project) do %>
+          <%= image_tag project.image_5.medium.url %>
+        <% end %>
       <% end %>
   <% end %>
+</section>
+
+<section class="background-text">
+  <%= image_tag("logoglobe.png") %>
 </section>

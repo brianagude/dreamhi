@@ -1,12 +1,15 @@
-<h2>Thanks for your order</h2>
-<p>
-  Your order has been received
-  </p>
+<section class="submitted">
+  <div>
+    <%= image_tag("logo-full.png") %>
 
-  <p>
-    <%= link_to 'Back to Home', root_path %>
+    <h3>Thanks for shopping with us, <%= @order.first_name %></h3>
+    <p>
+      Your order has been received. <br /> Be on the lookout for your confirmation email at <b><%= @order.email %></b><br />If you have any questions please email us at: <%= mail_to "info@dreamhi.com", "info@dreamhi.com"%>
     </p>
 
-    <% @order.order_items.each do |item| %>
-      <%= item.product.title %>
-    <% end %>
+    <%= link_to 'Continue Shopping', shop_path, class: "btn" %>
+    <%= link_to 'View Our Projects', root_path, class: "btn" %>
+</div>
+
+
+</section>

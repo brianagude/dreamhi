@@ -2,7 +2,7 @@ ActiveAdmin.register Product do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :title, :image_1, :image_2, :image_3, :image_4, :image_5, :price, :is_featured, :collection_date, :description,:is_sold_out, :size, :color
+permit_params :title, :image_1, :image_2, :image_3, :image_4, :image_5, :price, :collection_date, :description,:is_sold_out
 
 index do
   selectable_column
@@ -13,7 +13,7 @@ index do
   column :title
   column :price
   column "Sold Out", :is_sold_out
-  column "Featured", :is_featured
+  # column "Featured", :is_featured
   actions
 end
 
@@ -22,10 +22,10 @@ form title: 'Product Info' do |f|
       input :title
       input :price
       input :collection_date, label: 'Collection'
-      input :size, label: 'Available Sizes'
-      input :color, label: 'Available Colors'
+      # input :size, label: 'Available Sizes'
+      # input :color, label: 'Available Colors'
       input :description
-      input :is_featured, label: 'Add to Featured List?'
+      # input :is_featured, label: 'Add to Featured List?'
       input :is_sold_out, label: 'Is This Product Sold Out?'
     end
 

@@ -1,8 +1,19 @@
-// fonts
+// 1. FONTS & MIXINS
+// 2. LAYOUTS APPLICATION
+// 3. PROJECTS INDEX
+// 4. PROJECTS SHOW
+// 5. PRODUCTS INDEX
+// 6. PRODUCTS SHOW
+// 7. PROJECTS INFO
+// 8. CARTS SHOW
+// 9. ORDERS NEW
+// 10. ORDERS SHOW
+
+// 1. FONTS & MIXINS ==========================================================
+
 @import url("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Space+Mono:400,400i,700,700i");
 @import url("https://fontlibrary.org/face/tex-gyre-adventor");
 
-// mixins
 @mixin flex($justify) {
   display: flex;
   justify-content: $justify;
@@ -38,22 +49,19 @@
   }
 }
 
-// main code
+// 2. LAYOUTS APPLICATION ==========================================================
+
 html {
   font-size: 18px;
 }
 
 body {
-  background-color: white;
+  background: none;
   font-family: "Karla", sans-serif;
   font-weight: 400;
   line-height: 1.45;
   color: #333;
-  margin: 96px 24px 0 24px;
-}
-
-p {
-  // margin-bottom: 1.25em;
+  margin: 120px 24px 0 24px;
 }
 
 h1,
@@ -61,7 +69,6 @@ h2,
 h3,
 h4,
 h5 {
-  // margin: 1.75rem 0 1rem;
   font-family: "TeXGyreAdventorRegular";
   font-weight: 700;
   line-height: 1.15;
@@ -143,8 +150,8 @@ header {
 }
 
 section {
-  // margin: 120px 0;
-  min-height: 100vh;
+  margin-bottom: 120px;
+  min-height: calc(100vh - 350px);
   width: 100%;
 }
 
@@ -153,101 +160,15 @@ section {
   padding: 0;
 }
 
-.background-text {
-  margin: 120px 0;
-  h2 {
-    font-family: "Karla", sans-serif;
-    font-weight: bold;
-    margin: 24px;
-  }
-
-  img {
-    width: 30%;
-  }
-
-  background: none;
+.background {
   position: fixed;
-
-  top: 50%;
-  left: 50%;
-  width: 80%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: -5;
-}
-
-.projects {
-  @include flex(center);
-  flex-wrap: wrap;
-
-  margin-top: 50vh;
-  padding: 0 20px;
-  height: 100%;
-  width: 100%;
-
-  img {
-    @include btn();
-    border: none;
-    height: 40vh;
-    margin: 32px;
-    padding: 0;
-  }
-}
-
-.card {
-  position: fixed;
-  // width: 336px;
-  padding: 32px 16px;
-  border: 4px solid black;
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 5px;
-  background: #fff;
-  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
-}
-
-.strike {
-  border: 4px solid black;
-  padding: 4px;
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  border-radius: 5px;
-  background: #fff;
-  top: 4px;
-}
-
-.flex {
-  @include flex(flex-start);
-
-  img {
-    width: 80%;
-  }
-}
-
-.products {
-  // @include flex(flex-start);
-  // padding: 24px;
-  // align-items: flex-start;
-  // flex-wrap: wrap;
-  min-height: 100vh;
-  // width: 80%;
-  margin: 120px auto 120px auto;
-}
-
-.product {
-  @include flex(center);
-  margin: 24px 0;
-  h5,
-  p,
-  a {
-    text-align: center;
-  }
-  img {
-    height: 250px;
-    width: auto;
-  }
+  top: 0;
+  left: 0;
+  background-image: image-url("grid.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100vh;
+  width: 100vw;
 }
 
 div.flash-success {
@@ -256,32 +177,10 @@ div.flash-success {
   padding: 10px 20px 10px 20px;
 }
 
-table {
-  width: 100%;
-
-  th {
-    text-align: left;
-  }
-
-  th,
-  td {
-    vertical-align: middle;
-  }
-
-  thead th {
-    border-bottom: 1px solid grey;
-    padding: 0 0 10px 0;
-  }
-
-  tbody th,
-  tbody td {
-    padding: 10px 0 10px 0;
-  }
-
-  td img {
-    margin: 0 10px 0 0;
-    vertical-align: middle;
-  }
+input,
+select {
+  @include btn();
+  width: 120px;
 }
 
 footer {
@@ -294,11 +193,304 @@ footer {
   align-items: flex-start;
   flex-wrap: nowrap;
 
+  input[type="email"] {
+    width: 180px;
+  }
+
   div {
     padding: 0;
     height: 100%;
     h5 {
       margin: 0 0 4px 0;
     }
+  }
+
+  .bri {
+    padding-top: 1.6em;
+  }
+}
+
+// 3. PROJECTS INDEX ==========================================================
+
+.show-intro {
+  transform: translateY(-100%);
+}
+
+.intro {
+  background: white;
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  @include flex(center);
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: transform 1.5s ease;
+  div {
+    text-align: center;
+  }
+
+  h4 {
+    margin: 16px 0;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+  }
+
+  img {
+    width: 60%;
+    height: auto;
+    padding: 36px 0;
+    margin: 0;
+  }
+}
+
+.background-text {
+  @include flex(center);
+  background: none;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -5;
+
+  img {
+    width: 40%;
+  }
+}
+
+.projects {
+  @include flex(center);
+  flex-wrap: wrap;
+  background: none;
+
+  margin-top: 80vh;
+  padding: 0 20px;
+  height: 100%;
+  width: 100%;
+
+  a img {
+    @include btn();
+    border: none;
+    height: 40vh;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    margin: 32px;
+  }
+}
+
+// 4. PROJECTS SHOW ==========================================================
+.project {
+  .navlinks {
+    @include flex(flex-start);
+  }
+
+  .strike {
+    border: 4px solid black;
+    padding: 4px;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 5px;
+    background: #fff;
+    top: 4px;
+  }
+}
+
+.card {
+  padding: 32px 16px;
+  border: 4px solid black;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.images {
+  @include flex(center);
+  flex-wrap: wrap;
+  margin-bottom: 120px;
+
+  img {
+    width: 70%;
+    margin: 0 0 48px 0;
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+// 5. PRODUCTS INDEX ==========================================================
+
+.products {
+  @include flex(center);
+
+  .sold-out {
+    position: relative;
+    width: 50%;
+  }
+
+  .row {
+    @include flex(flex-start);
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background: transparent;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .sold-out:hover .overlay {
+    opacity: 1;
+    height: 100%;
+  }
+
+  .text {
+    color: black;
+    background: white;
+    padding: 4px 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+// 6. PRODUCTS SHOW ==========================================================
+
+.product {
+  margin: 24px 0;
+  h5,
+  p,
+  a {
+    text-align: center;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+// 7. PROJECTS INFO ==========================================================
+
+.info {
+  margin-top: 0;
+  align-items: center;
+  text-align: center;
+
+  div {
+    margin-bottom: 48px;
+  }
+
+  img {
+    border: none;
+    background: none;
+    box-shadow: none;
+    // width: 50%;
+
+    &:hover {
+      top: 0;
+    }
+  }
+
+  .logo {
+    width: 30%;
+    margin-bottom: 24px;
+  }
+}
+
+// 8. CART SHOW ==========================================================
+
+.cart {
+  h2 {
+    margin-bottom: 40px;
+  }
+  a {
+    @include btn();
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 40px;
+
+    th {
+      text-align: left;
+    }
+
+    th,
+    td {
+      vertical-align: middle;
+    }
+
+    thead th {
+      border-bottom: 1px solid black;
+      padding: 0 0 10px 0;
+    }
+
+    tfoot th {
+      border-top: 1px solid black;
+      padding: 10px 0 0 0;
+    }
+
+    tbody th,
+    tbody td {
+      padding: 10px 0 10px 0;
+    }
+
+    td img {
+      margin: 0 10px 0 0;
+      vertical-align: middle;
+    }
+  }
+}
+
+// 9. ORDERS NEW  ==========================================================
+
+// 10. ORDERS SHOW  ==========================================================
+.submitted {
+  text-align: center;
+  position: relative;
+
+  img {
+    max-width: 240px;
+  }
+  div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  h3,
+  p {
+    display: block;
+    width: 100%;
+    margin: 24px;
+    padding: 0;
+    line-height: 1.5em;
   }
 }

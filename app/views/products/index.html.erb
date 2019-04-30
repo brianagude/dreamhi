@@ -2,15 +2,23 @@
   <div class="container">
     <div class="row">
       <% @products.each do |product| %>
-        <div class="col-lg-3 product">
-          <%= link_to product_path(product) do %>
-            <%= image_tag product.image_1.url %>
-            <h5><%= product.title%></h5>
-            <p><%= number_to_currency product.price%></p>
-          <% end %>
+        <% if product.is_sold_out==true %>
+          <div class="sold-out">
+            <%= image_tag product.image_1.medium.url, class: "image"%>
+            <div class="overlay">
+              <div class="text"><h2>SOLD OUT</h2></div>
+            </div>
           </div>
+        <% else %>
+          <div class="col-lg-3 col-sm-12 product">
+            <%= link_to product_path(product) do %>
+              <%= image_tag product.image_1.medium.url %>
+              <h5><%= product.title%></h5>
+              <p><%= number_to_currency product.price, precision: 0%></p>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
       </div>
     </div>
-
 </section>
