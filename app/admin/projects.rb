@@ -12,7 +12,7 @@ index do
   end
   column :title
   column :artist
-  column "Phorography", :is_photography
+  column "Photography", :is_photography
   column "Design", :is_design
   column "Archived", :is_archived
   column "Team Member", :is_team_member
