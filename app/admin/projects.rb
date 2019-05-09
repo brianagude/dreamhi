@@ -11,7 +11,6 @@ index do
     image_tag project.image_1.thumb.url, width: '50'
   end
   column :title
-  # column :price
   column :artist
   column "Phorography", :is_photography
   column "Design", :is_design
