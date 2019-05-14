@@ -1,19 +1,15 @@
 
-<% if @design.present? %>
-   <section class='none'>
-<% elseif @photography.present? %>
-    <section class='none'>
-<% elseif @archive.present? %>
-    <section class='none'>
+<% if @design.present? || @photography.present? || @archive.present?%>
+ <section class="none"></section>
 <% else %>
-   <section class='intro'>
-<% end %>
-
+<section class='intro'>
   <div>
     <%= link_to image_tag('logo-full.png'), shop_path, class: "btn button"%>
     <h4>Take A Chance</h4>
   </div>
 </section>
+<% end %>
+
 
 <section class="projects">
   <% @projects.each do |project| %>
