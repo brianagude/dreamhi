@@ -6,5 +6,5 @@ CarrierWave.configure do |config|
     aws_secret_access_key: Rails.application.credentials.aws[:secret],
     region: "us-east-2"
   }
-  config.fog_directory  = Rails.application.credentials.aws[:bucket]                                     # required
+  config.fog_directory  = Rails.application.credentials.aws[:bucket]                              # required
 end
