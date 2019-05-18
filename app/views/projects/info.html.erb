@@ -12,9 +12,8 @@
         <div class="col-md-12" style="margin-bottom: 120px;">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/c5rYRNV-sl0" controls="0" frameborder="0" autoplay="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <!-- <div><h4>Who Are We?</h4></div> -->
         <% @projects.each do |project| %>
-          <div class="col-md-4">
+          <div class="col-md-2">
             <%= image_tag project.image_1.url, :class => "btn" %>
             <h4 style="text-align: center"><%= project.artist %></h4>
             <h5 style="text-align: center"><%= project.title %></h5>

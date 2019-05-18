@@ -22,8 +22,9 @@
 
 @mixin btn() {
   font-family: "Space Mono", monospace;
-  font-weight: 400;
-  line-height: 1.45;
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1.333em;
   color: #333;
   border: 4px solid black;
   position: relative;
@@ -71,6 +72,15 @@ body {
   line-height: 1.45;
   color: #333;
   margin: 120px 24px 0 24px;
+}
+
+input {
+  text-align: left;
+  outline: none;
+}
+
+select {
+  outline: none;
 }
 
 h1,
@@ -156,10 +166,15 @@ header {
     width: 48px;
     @include flex(center);
   }
+
+  // .btn {
+  //   height: 50px;
+  //   width: 50px;
+  // }
 }
 
 section {
-  margin-bottom: 120px;
+  margin-bottom: 80px;
   min-height: calc(100vh - 350px);
   width: 100%;
 }
@@ -167,6 +182,7 @@ section {
 .container {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .background {
@@ -210,6 +226,10 @@ footer {
     width: 180px;
   }
 
+  nav a {
+    font-size: 1em;
+  }
+
   div {
     padding: 0;
     height: 100%;
@@ -240,6 +260,7 @@ footer {
   background-size: cover;
   background-attachment: fixed;
   background-color: white;
+  border: 4px solid black;
   height: 100%;
   width: 100%;
   z-index: 50;
@@ -286,26 +307,37 @@ footer {
 }
 
 .projects {
-  @include flex(center);
-  flex-wrap: wrap;
+  // @include flex(flex-start);
+  // flex-wrap: wrap;
   background: none;
 
+  margin: auto;
   margin-top: 80vh;
-  padding: 0 20px;
+  // padding: 0 20px;
   height: 100%;
-  width: 100%;
+  width: auto;
+
+  .container {
+    width: 100%;
+  }
+
+  div {
+    margin-bottom: px;
+    text-align: center;
+  }
 
   a img {
     @include btn();
     border: none;
-    height: 40vh;
 
     margin: 0;
     padding: 0;
   }
 
   a {
-    margin: 32px;
+    // width: 25%;
+    // margin: 16px;
+    // padding: 16px;
   }
 }
 
@@ -316,69 +348,60 @@ footer {
   }
 
   .strike {
-    border: 4px solid black;
-    padding: 4px;
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-    border-radius: 5px;
-    background: #fff;
     top: 4px;
+    text-decoration: line-through;
+    box-shadow: none;
   }
 }
 
 .card {
   padding: 32px 16px;
   border: 4px solid black;
-  position: relative;
   display: inline-block;
   text-decoration: none;
   border-radius: 5px;
   background: #fff;
   box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
-}
+  // width: 400px;
 
-.big {
-  width: 100%;
-  input {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.images {
-  @include flex(center);
-  flex-wrap: wrap;
-  margin-bottom: 120px;
-
-  img {
-    width: 70%;
-    margin: 0 0 48px 0;
-    text-align: center;
+  .btn {
+    width: 50%;
+    height: 48px;
     display: inline-block;
+  }
+
+  .navlinks {
+    width: 100%;
+    margin: auto;
+    @include flex(space-/between);
   }
 }
 
 // 5. PRODUCTS INDEX ==========================================================
 
 .products {
-  @include flex(center);
+  background: none;
+
+  margin: auto;
+  margin-top: 80vh;
+  height: 100%;
+  width: auto;
+
+  .container {
+    width: 100%;
+  }
+
+  div {
+    margin-bottom: 24px;
+  }
+
+  a img {
+    margin: 0;
+    padding: 0;
+  }
 
   .sold-out {
     position: relative;
-    width: 50%;
-  }
-
-  .row {
-    @include flex(flex-start);
-    align-items: flex-end;
-    flex-wrap: wrap;
-  }
-
-  .image {
-    display: block;
-    width: 100%;
-    height: auto;
   }
 
   .overlay {
@@ -414,14 +437,17 @@ footer {
 // 6. PRODUCTS SHOW ==========================================================
 
 .product {
-  margin: 24px 0;
-  h5,
-  p,
-  a {
-    text-align: center;
+  .strike {
+    top: 4px;
+    text-decoration: line-through;
+    box-shadow: none;
   }
-  img {
-    width: 100%;
+
+  .buttons {
+    input,
+    select {
+      width: 100%;
+    }
   }
 }
 

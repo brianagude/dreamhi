@@ -3,7 +3,6 @@ class Project < ApplicationRecord
   validates :artist, presence: true
   validates :description, presence: true
   validates :image_1, presence: true
-  validates :collection, presence: true
 
   mount_uploader :image_1, ImageUploader
   mount_uploader :image_2, ImageUploader
