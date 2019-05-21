@@ -6,7 +6,7 @@ class OrderItemsController < ApplicationController
     @size = form_params[:size]
     @current_cart.order_items.create(product: @product, quantity: @quantity, size: @size)
     flash[:success] = "Thanks for adding to your cart"
-    redirect_to cart_path
+    redirect_to shop_path
   end
 
   def update

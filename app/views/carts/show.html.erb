@@ -1,63 +1,67 @@
 <section class="cart">
-  <div class="card big">
-  <h2>Your Cart</h2>
+  <div class="container">
+    <div class="row">
+      <div class="card col-lg-12"style="width: 100%;">
+        <h2>Your Cart</h2>
 
-  <% if @current_cart.order_items.any? %>
-
-
-  <table>
-    <thead>
-      <tr>
-        <th><h5>Item</h5></th>
-        <th><h5>Price</h5></th>
-        <th><h5>Size</h5></th>
-        <th><h5>Qty</h5></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @current_cart.order_items.each do |item| %>
-        <tr>
-          <td>
-            <%= image_tag item.product.image_1.thumb.url, width: "50" %>
-            <%= item.product.title %>
-          </td>
-          <td><%= number_to_currency item.product.price, precision: 0 %></td>
-          <%= simple_form_for [item.product, item] do |f| %>
-            <td><%= f.input :size, collection: ["XS", "S", "M","L","XL"], label: false, required: true %></td>
-            <td><%= f.input :quantity, label: false, collection: ["1", "2", "3","4","5"] %></td>
-            <td><%= f.button :submit, "Update" %></td>
-          <% end %>
-
-          <td>
-            <%= link_to "Remove", product_order_item_path(item.product, item), method: :delete %>
-          </td>
-        </tr>
-
-      <% end %>
-    </tbody>
-    <tfoot>
-      <tr>
-        <th><h5>Total: <%= number_to_currency @current_cart.total_price, precision: 0 %></h5></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </tfoot>
-  </table>
+        <% if @current_cart.order_items.any? %>
 
 
-    <%= link_to "Continue to checkout", new_order_path %>
+        <table>
+          <thead>
+            <tr>
+              <th><h5>Item</h5></th>
+              <th><h5>Price</h5></th>
+              <th><h5>Size</h5></th>
+              <th><h5>Qty</h5></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @current_cart.order_items.each do |item| %>
+              <tr>
+                <td>
+                  <%= image_tag item.product.image_1.thumb.url, width: "50" %>
+                  <%= item.product.title %>
+                </td>
+                <td><%= number_to_currency item.product.price, precision: 0 %></td>
+                <%= simple_form_for [item.product, item] do |f| %>
+                  <td><%= f.input :size, collection: ["XS", "S", "M","L","XL"], label: false, required: true %></td>
+                  <td><%= f.input :quantity, label: false, collection: ["1", "2", "3","4","5"] %></td>
+                  <td><%= f.button :submit, "Update" %></td>
+                <% end %>
+
+                <td>
+                  <%= link_to "Remove", product_order_item_path(item.product, item), method: :delete %>
+                </td>
+              </tr>
+
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th><h5>Total: <%= number_to_currency @current_cart.total_price, precision: 0 %></h5></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </tfoot>
+        </table>
+
+
+          <%= link_to "Continue to checkout", new_order_path %>
 
 
 
 
 
-  <% else %>
-    <p class="empty">There are no items in your cart</p>
-  <% end %>
+        <% else %>
+          <p class="empty">There are no items in your cart</p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </section>

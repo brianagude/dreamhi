@@ -12,18 +12,27 @@
   </head>
 
   <body>
-
+    <% if flash[:success].present? %>
+      <div class='success'>
+        <%= flash[:success]%>
+      </div>
+    <% end %>
+    <% if flash[:error].present? %>
+      <div class='error'>
+        <%= flash[:error]%>
+      </div>
+    <% end %>
     <header>
       <div class='project-filters'>
         <%= link_to image_tag('logo-globe.png'), root_path, class: "logo btn"%>
-        <%= link_to image_tag('camera.png'), root_path(is_photography: true), class: "btn"%>
-        <%= link_to image_tag('paint.png'), root_path(is_design: true), class: "btn"%>
-        <%= link_to image_tag('album.png'), root_path(is_archived: true), class: "btn"%>
-        <%= link_to image_tag('people.png'), info_path , class: "btn"%>
+        <%= link_to 'photos', root_path(is_photography: true), class: "btn"%>
+        <%= link_to 'design', root_path(is_design: true), class: "btn"%>
+        <%= link_to 'archive', root_path(is_archived: true), class: "btn"%>
+        <%= link_to '?', info_path , class: "btn"%>
 
       </div>
       <div class='search-cart'>
-        <%= link_to image_tag('shopping-bag.png'), shop_path, class: "btn"%>
+        <%= link_to 'shop', shop_path, class: "btn"%>
         <%= link_to cart_path do %>
           <div class='cart btn'>
             <%= @current_cart.total_quantity%>
@@ -32,11 +41,7 @@
       </div>
     </header>
 
-    <% if flash[:success].present? %>
-      <div class='success'>
-        <%= flash[:success]%>
-      </div>
-    <% end %>
+
 
     <%= yield %>
     <!-- <div class="background"></div> -->

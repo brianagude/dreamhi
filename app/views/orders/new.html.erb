@@ -56,7 +56,7 @@
               </div>
               <div class="col-lg-6 col-sm-6 col-xs-6"  >
                 <div >
-                  <%= f.input :country, placeholder: 'Country', label: false %>
+                  <%= f.input :country, placeholder: 'Country', label: false, priority: ["US", 'CA']%>
                   </div>
               </div>
             </div>
@@ -72,11 +72,11 @@
               </div>
             </div>
             <div class="col-lg-4 col-sm-6 col-xs-12">
-              <h4>Submit</h4>
+              <!-- <h4>Submit</h4> -->
               <p>Standard free shipping on all orders</p>
               <p>Orders will be processed in 3-5 business days</p>
               <div class="col-lg-6">
-                <%= f.button :submit, 'Sumbit Order'%>
+                <%= f.button :submit, 'Sumbit Order',:style => 'width: 220px;margin-left: -16px;'%>
               </div>
             </div>
           </div>
@@ -115,6 +115,8 @@
     var stripe = Stripe(
       "<%= Rails.application.credentials[Rails.env.to_sym][:stripe_public_key] %>"
     );
+
+    Stripe.api_key = stripe
 
     var elements = stripe.elements({ fonts: fonts });
 

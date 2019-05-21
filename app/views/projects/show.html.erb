@@ -5,25 +5,25 @@
       <div class="col-md-6 col-xs-12 images">
         <%= image_tag @project.image_1.large.url%>
         <% if @project.image_2.present? %>
-          <%= image_tag @project.image_2.large.url %>
+          <%= image_tag @project.image_2.large.url, :class => "mb-24" %>
         <% end %>
         <% if @project.image_4.present? %>
-          <%= image_tag @project.image_4.large.url %>
+          <%= image_tag @project.image_4.large.url, :class => "mb-24" %>
         <% end %>
         <% if @project.image_5.present? %>
-          <%= image_tag @project.image_5.large.url %>
+          <%= image_tag @project.image_5.large.url, :class => "mb-24" %>
         <% end %>
         <% if @project.image_3.present? %>
-          <%= image_tag @project.image_3.large.url %>
+          <%= image_tag @project.image_3.large.url, :class => "mb-24" %>
         <% end %>
         <% if @project.image_4.present? %>
-          <%= image_tag @project.image_4.large.url %>
+          <%= image_tag @project.image_4.large.url, :class => "mb-24" %>
         <% end %>
         <% if @project.image_5.present? %>
-          <%= image_tag @project.image_5.large.url %>
+          <%= image_tag @project.image_5.large.url, :class => "mb-24" %>
         <% end %>
       </div>
-      <div class="col-md-4 col-xs-12 card">
+      <div class="col-md-4 col-xs-12 card affix">
           <h4><%= @project.title%></h4>
           <h5 style="font-weight:700;"><%=@project.artist%></h5><br />
           <p><%= simple_format @project.description %></p><br />

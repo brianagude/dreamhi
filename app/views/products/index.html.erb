@@ -24,32 +24,3 @@
     </div>
   </div>
 </section>
-
-
-
-
-
-<section class="products">
-  <div class="container">
-    <div class="row">
-      <% @products.each do |product| %>
-        <% if product.is_sold_out==true %>
-          <div class="sold-out col-lg-3 col-xs-12">
-            <%= image_tag product.image_1.medium.url, class: "image"%>
-            <div class="overlay">
-              <div class="text"><h2>SOLD OUT</h2></div>
-            </div>
-          </div>
-        <% else %>
-          <div class="col-lg-3 col-sm-12">
-            <%= link_to product_path(product) do %>
-              <%= image_tag product.image_1.medium.url %>
-              <h5><%= product.title%></h5>
-              <p><%= number_to_currency product.price, precision: 0%></p>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-      </div>
-    </div>
-</section>

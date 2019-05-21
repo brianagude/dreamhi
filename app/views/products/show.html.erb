@@ -23,13 +23,14 @@
           <%= image_tag @product.image_5.large.url %>
         <% end %>
       </div>
-        <div class=" card col-md-4 col-xs-12">
+        <div class=" card col-md-4 col-xs-12 affix">
           <h4><%= @product.title%></h4>
           <h5 style="line-height:1.75;"><%= number_to_currency @product.price, precision: 0 %></h5>
           <p><%= simple_format @product.description %></p>
           <% if @product.description_2.present?%>
-          <p><%= simple_format @product.description_2 %></p>
+          <p><b><%= simple_format @product.description_2 %></b></p>
           <% end %>
+
           <%= simple_form_for [@product, @order_item] do |f|%>
             <div class="buttons">
               <br />
@@ -44,6 +45,7 @@
                   <%= f.button :submit, 'Add to Cart'%>
             </div>
           <% end %>
+
           <div class='navlinks'>
             <% if @prev %>
               <%= link_to "Previous", @prev, class: "btn" %>
