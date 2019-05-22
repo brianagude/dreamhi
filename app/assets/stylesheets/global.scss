@@ -60,8 +60,8 @@ html {
   font-size: 18px;
   background-image: asset-url("grid.png");
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background-position: top left;
+  background-size: 100%;
   background-attachment: fixed;
 }
 
@@ -204,6 +204,17 @@ section {
   display: none;
 }
 
+.mobile {
+  display: none;
+}
+
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+
 .mb-24 {
   margin-bottom: 24px;
 }
@@ -272,10 +283,6 @@ footer {
       margin: 0 0 4px 0;
     }
   }
-
-  .bri {
-    padding-top: 1.6em;
-  }
 }
 
 // 3. PROJECTS INDEX ==========================================================
@@ -318,9 +325,9 @@ footer {
   }
 
   img {
-    width: 60%;
+    max-width: 400px;
     height: auto;
-    padding: 36px 0;
+    padding: 20px 40px;
     margin: 0;
   }
 }
@@ -360,7 +367,7 @@ footer {
 
   a img {
     @include btn();
-    border: none;
+    // border: none;
 
     margin: 0;
     padding: 0;

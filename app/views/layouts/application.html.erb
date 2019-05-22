@@ -22,7 +22,7 @@
         <%= flash[:error]%>
       </div>
     <% end %>
-    <header>
+    <header class="desktop">
       <div class='project-filters'>
         <%= link_to image_tag('logo-globe.png'), root_path, class: "logo btn"%>
         <%= link_to 'photos', root_path(is_photography: true), class: "btn"%>
@@ -46,25 +46,35 @@
     <%= yield %>
     <!-- <div class="background"></div> -->
     <footer>
-          <div>
-            <h5>Stay In Touch</h5>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-xs-12">
+            <!-- <h5>Stay In Touch</h5> -->
             <nav>
               <%= link_to "Instagram", "https://www.instagram.com/dreamhiiii/", target: '_blank', class: "btn"%>
               <%= link_to "Twitter", "https://www.twitter.com/dreamhiiii/", target: '_blank', class: "btn"%>
             </nav>
           </div>
-          <div class="bri">
-            <p>Copyright Dreamhi LLC</p>
+          <div class=" desktop col-lg-4 col-xs-12 text-center">
             <p><%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%></p>
+            <p>Copyright 2019 Dreamhi</p>
           </div>
-          <div>
-            <h5>Stay Updated</h5>
+          <div class="col-lg-4 col-xs-12">
+            <!-- <h5>Stay Updated</h5> -->
             <form action="https://formspree.io/info@dreamhi.com" method="POST">
-              <!-- <input type="text" name="name" placeholder="What's your name?"> -->
               <input type="email" name="_replyto" placeholder="Email" class="btn">
               <input type="submit" value="Send" class="btn">
             </form>
           </div>
+          <div class=" mobile col-lg-4 col-xs-12">
+            <p><%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%></p>
+            <p>Copyright 2019 Dreamhi</p>
+          </div>
+        </div>
+      </div>
+
+
+
     </footer>
     <!-- <div class="background"></div> -->
     <%= javascript_include_tag 'application' %>
