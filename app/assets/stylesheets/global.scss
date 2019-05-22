@@ -58,11 +58,11 @@
 
 html {
   font-size: 18px;
-  background-image: asset-url("grid.png");
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: 100%;
+  background-image: asset-url("grid4.png");
+  background-repeat: repeat;
   background-attachment: fixed;
+  // height: 100vh;
+  // width: 100vw;
 }
 
 body {
@@ -189,16 +189,16 @@ section {
   width: 100%;
 }
 
-.background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-image: asset-url("grid.png");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 100vh;
-  width: 100vw;
-}
+// .background {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   background-image: asset-url("grid4.png");
+//   background-repeat: repeat;
+//   background-size: 100%;
+//   height: 100vh;
+//   width: 100vw;
+// }
 
 .none {
   display: none;
@@ -296,10 +296,8 @@ footer {
 }
 
 .intro {
-  background-image: asset-url("grid.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background-image: asset-url("grid4.png");
+  background-repeat: repeat;
   background-attachment: fixed;
   background-color: white;
   border: 4px solid black;
