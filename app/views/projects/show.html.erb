@@ -23,7 +23,8 @@
           <%= image_tag @project.image_5.large.url, :class => "mb-24" %>
         <% end %>
       </div>
-      <div class="col-md-4 col-xs-12 card affix">
+
+      <div class="col-md-4 col-xs-12 card affix desktop">
           <h4><%= @project.title%></h4>
           <h5 style="font-weight:700;"><%=@project.artist%></h5><br />
           <p><%= simple_format @project.description %></p><br />
@@ -42,6 +43,26 @@
             <% end %>
           </div>
         </div>
+        <div class="col-md-4 col-xs-12 card mobile text-center">
+            <h4><%= @project.title%></h4>
+            <h5 style="font-weight:700;"><%=@project.artist%></h5><br />
+            <p><%= simple_format @project.description %></p><br />
+
+            <div class='navlinks'>
+              <% if @prev %>
+                <%= link_to "Previous", @prev, class: "btn" %>
+              <% else %>
+                <%= link_to "Previous", '#', :class => "strike btn"%>
+              <% end %>
+
+              <% if @next %>
+                <%= link_to "Next", @next, class: "btn" %>
+              <% else %>
+                <%= link_to "Next", '#', :class => "strike btn"%>
+              <% end %>
+            </div>
+          </div>
+
       </div>
     </div>
 </section>

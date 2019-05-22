@@ -65,6 +65,10 @@ html {
   // width: 100vw;
 }
 
+.mobile {
+  display: none;
+}
+
 body {
   background: none;
   font-family: "Karla", sans-serif;
@@ -204,10 +208,6 @@ section {
   display: none;
 }
 
-.mobile {
-  display: none;
-}
-
 .text-left {
   text-align: left !important;
 }
@@ -251,6 +251,38 @@ div.error {
   left: 0;
 }
 
+div.alert {
+  background: transparent;
+  color: red;
+  padding: 10px 20px 10px 20px;
+  width: 100vw;
+  margin: 0;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation-name: text;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-timing-function: linear;
+}
+
+@keyframes text {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(25vw);
+  }
+  50% {
+    transform: translateX(50vw);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
 input,
 select {
   @include btn();
@@ -260,6 +292,7 @@ select {
 footer {
   height: auto;
   padding: 20px;
+  margin-top: 120px;
   width: 100%;
 
   display: flex;
@@ -598,5 +631,20 @@ footer {
     margin: 24px;
     padding: 0;
     line-height: 1.5em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mobile {
+    display: initial;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  footer div {
+    text-align: center;
+    margin: 0;
   }
 }

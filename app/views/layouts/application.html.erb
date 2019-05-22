@@ -22,7 +22,12 @@
         <%= flash[:error]%>
       </div>
     <% end %>
-    <header class="desktop">
+    <% if flash[:alert].present? %>
+      <div class='alert'>
+        <b><%= flash[:alert]%></b>
+      </div>
+    <% end %>
+    <header>
       <div class='project-filters'>
         <%= link_to image_tag('logo-globe.png'), root_path, class: "logo btn"%>
         <%= link_to 'photos', root_path(is_photography: true), class: "btn"%>
@@ -45,31 +50,55 @@
 
     <%= yield %>
     <!-- <div class="background"></div> -->
-    <footer>
+    <footer class="desktop">
       <div class="container">
         <div class="row">
-          <div class="col-lg-4 col-xs-12">
+          <div class="col-lg-4 text-center">
             <!-- <h5>Stay In Touch</h5> -->
             <nav>
+              <%= mail_to "contact@dreamhi.us", 'Email', class: "btn"%>
               <%= link_to "Instagram", "https://www.instagram.com/dreamhiiii/", target: '_blank', class: "btn"%>
               <%= link_to "Twitter", "https://www.twitter.com/dreamhiiii/", target: '_blank', class: "btn"%>
             </nav>
           </div>
-          <div class=" desktop col-lg-4 col-xs-12 text-center">
+          <div class="col-lg-4 text-center">
             <p><%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%></p>
             <p>Copyright 2019 Dreamhi</p>
           </div>
-          <div class="col-lg-4 col-xs-12">
+          <div class="col-lg-4">
             <!-- <h5>Stay Updated</h5> -->
             <form action="https://formspree.io/info@dreamhi.com" method="POST">
+              <input type="email" name="_replyto" placeholder="Your Email" class="btn">
+              <input type="submit" value="Send" class="btn">
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <footer class="mobile">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-4 col-sm-4 text-left">
+            <!-- <h5>Stay In Touch</h5> -->
+            <nav>
+              <%= link_to image_tag('instagram.png'), "https://www.instagram.com/dreamhiiii/", target: '_blank', class: "btn"%>
+              <%= link_to image_tag('twitter.png'), "https://www.twitter.com/dreamhiiii/", target: '_blank', class: "btn"%>
+              <%= mail_to "contact@dreamhi.us", image_tag('email.png'), class: "btn"%>
+            </nav>
+          </div>
+          <div class="col-xs-4 col-sm-4 text-center">
+            <p>Copyright 2019 Dreamhi </p>
+            <%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%>
+          </div>
+          <div class="col-xs-4 col-sm-4 text-right">
+            <!-- <h5>Stay Updated</h5> -->
+            <form action="https://formspree.io/contact@dreamhi.us" method="POST">
               <input type="email" name="_replyto" placeholder="Email" class="btn">
               <input type="submit" value="Send" class="btn">
             </form>
           </div>
-          <div class=" mobile col-lg-4 col-xs-12">
-            <p><%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%></p>
-            <p>Copyright 2019 Dreamhi</p>
-          </div>
+
         </div>
       </div>
 
