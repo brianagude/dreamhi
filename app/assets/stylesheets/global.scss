@@ -61,8 +61,6 @@ html {
   background-image: asset-url("grid4.png");
   background-repeat: repeat;
   background-attachment: fixed;
-  // height: 100vh;
-  // width: 100vw;
 }
 
 .mobile {
@@ -347,6 +345,10 @@ footer {
     text-align: center;
   }
 
+  ul {
+    margin-top: 24px;
+  }
+
   h4 {
     margin: 16px 0;
     padding: 0;
@@ -383,7 +385,7 @@ footer {
   background: none;
 
   margin: auto;
-  margin-top: 80vh;
+  // margin-top: 80vh;
   height: 100%;
   width: auto;
 
@@ -461,6 +463,7 @@ footer {
   div {
     margin-bottom: 24px;
     text-align: center;
+    // vertical-align: bottom;
   }
 
   a img {

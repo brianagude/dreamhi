@@ -29,4 +29,12 @@ class ProjectsController < ApplicationController
     @projects = Project.where(is_team_member: true)
   end
 
+  def lookbook
+    @projects = Project.where(is_lookbook: true)
+  end
+
+  def contact
+
+  end
+
 end

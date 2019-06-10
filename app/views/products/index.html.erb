@@ -3,7 +3,7 @@
     <div class="row">
       <% @products.each do |product| %>
         <% if product.is_sold_out==true %>
-          <div class="sold-out col-lg-3 col-xs-12 product">
+          <div class="sold-out col-lg-4 col-xs-12 product">
             <%= image_tag product.image_1.medium.url, class: "image"%>
             <h5><%= product.title%></h5>
             <p><%= number_to_currency product.price, precision: 0%></p>
@@ -12,7 +12,7 @@
             </div>
           </div>
         <% else %>
-          <div class="col-lg-3 col-sm-12 product">
+          <div class="col-lg-4 col-sm-12 product">
             <%= link_to product_path(product) do %>
               <%= image_tag product.image_1.medium.url %>
               <h5><%= product.title%></h5>

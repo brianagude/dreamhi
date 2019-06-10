@@ -1,30 +1,27 @@
 <section class="projects info team">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 card">
-        <%= image_tag("logo-full.png", :alt => "DREAMHI", class: "logo") %>
-        <h3>Drēm/Hī/</h3>
-        <h4>Take A Chance</h4><br />
-        <p>DreamHi is a creative brand consulting agency and apparel brand. Our team helps build artist brands by providing marketing consulting that is a custom fit for each artist’s needs. With our experience in the global music and fashion industries, we analyze strengths and weaknesses and put forward a plan toward reaching the artist’s brand dreams. </p><br />
-        <p>Our apparel brand offers tour merchandising which includes concept, design, and production. </p><br />
-        <p>The DreamHi team works with artists to create honest and authentic products that provide the perfect connection between fans and artists. All merchandise is created with in-house graphics, photography, and designers. </p>
+      <div class="col-md-2"></div>
+      <div class="col-md-8 card">
+          <%= image_tag("logo-full.png", :alt => "DREAMHI", class: "logo") %>
+          <h3>Drēm/Hī/</h3>
+          <h4>Take A Chance</h4><br />
+          <p>DreamHi is a creative brand consulting agency and apparel brand. Our team helps build artist brands by providing marketing consulting that is a custom fit for each artist’s needs. With our experience in the global music and fashion industries, we analyze strengths and weaknesses and put forward a plan toward reaching the artist’s brand dreams. </p><br />
+          <p>Our apparel brand offers tour merchandising which includes concept, design, and production. </p><br />
+          <p>The DreamHi team works with artists to create honest and authentic products that provide the perfect connection between fans and artists. All merchandise is created with in-house graphics, photography, and designers. </p>
       </div>
-      <div class="col-md-12 card" style="margin-bottom: 120px;">
-        <iframe width="100%" height="600px" src="https://www.youtube.com/embed/c5rYRNV-sl0" controls="0" frameborder="0" autoplay="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <p class="cameo">persons featured in this video:
-          <a href="https://www.instagram.com/joseyandthe/">@joseyandthe</a>,
-          <a href="https://www.instagram.com/fkabranch/">@fkabranch</a>,
-          <a href="https://www.instagram.com/flipkeys/">@flipkeys</a>,
-          <a href="https://www.instagram.com/brianagude/">@brianagude</a>,
-          <a href="https://www.instagram.com/darlingnickv/">@darlingnickv</a>,
-          @noigjon
-        </p>
-      </div>
-      <div class="col-md-12 text-center">
-        <p class="cameo">*more videos coming soon*</p>
-      </div>
+      <% @projects.each do |project| %>
+          <div class="col-lg-4 col-xs-12 mb-24">
+              <%= image_tag project.image_1.medium.url %><br />
+              <div class="card">
+                <h4><%= project.artist %></h4>
+                <h5><%= project.title %></h5>
+                <p><%= project.description %></p>
+              </div>
+          </div>
+      <% end %>
+
 
       </div>
     </div>
-
 </section>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_14_033406) do
+ActiveRecord::Schema.define(version: 2019_06_10_000913) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(version: 2019_05_14_033406) do
     t.boolean "is_team_member", default: false
     t.boolean "is_design", default: false
     t.boolean "is_photography", default: false
+    t.boolean "is_lookbook", default: false
   end
 
   create_table "spree_addresses", force: :cascade do |t|

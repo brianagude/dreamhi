@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get 'photography', to: 'projects#photography'
   get 'archives', to: 'projects#archives'
   get 'design', to: 'projects#design'
+  get 'lookbook', to: 'projects#lookbook'
+  get 'contact', to: 'projects#contact'
 
   root 'projects#index'
 end
