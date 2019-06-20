@@ -260,7 +260,7 @@ div.alert {
   top: 0;
   left: 0;
   animation-name: text;
-  animation-duration: 5s;
+  animation-duration: 8s;
   animation-iteration-count: infinite;
   animation-direction: reverse;
   animation-timing-function: linear;
@@ -268,13 +268,21 @@ div.alert {
 
 @keyframes text {
   0% {
+    transform: translateX(-50vw);
+  }
+  20% {
     transform: translateX(0);
   }
-  25% {
+  40% {
     transform: translateX(25vw);
   }
-  50% {
+
+  60% {
     transform: translateX(50vw);
+  }
+
+  80% {
+    transform: translateX(75vw);
   }
   100% {
     transform: translateX(100vw);
@@ -607,7 +615,7 @@ footer {
   input,
   select {
     width: 100%;
-    font-size: 18px;
+    font-size: 1em;
     // margin: 0;
   }
 }
@@ -637,17 +645,33 @@ footer {
   }
 }
 
+// 11. RESPONSIVE  ==========================================================
+
 @media (max-width: 1024px) {
   .mobile {
-    display: initial;
+    display: flex;
   }
 
   .desktop {
     display: none;
   }
 
+  html {
+    font-size: 24px;
+  }
+
   footer div {
     text-align: center;
     margin: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  // html {
+  //   font-size: 24px;
+  // }
+
+  .intro img {
+    width: 100%;
   }
 }
