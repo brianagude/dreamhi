@@ -1,5 +1,6 @@
 // 1. FONTS & MIXINS
 // 2. LAYOUTS APPLICATION
+// 3. LOOKBOOK
 // 3. PROJECTS INDEX
 // 4. PROJECTS SHOW
 // 5. PRODUCTS INDEX
@@ -298,7 +299,7 @@ select {
 footer {
   height: auto;
   padding: 20px;
-  margin-top: 120px;
+  margin-top: 140px;
   width: 100%;
 
   display: flex;
@@ -321,6 +322,20 @@ footer {
     h5 {
       margin: 0 0 4px 0;
     }
+  }
+}
+
+// 3. LOOKBOOK INDEX ==========================================================
+.lookbook_imgs {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  img {
+    width: 25vw;
+    margin: 16px;
+    padding: 0;
   }
 }
 
@@ -389,6 +404,17 @@ footer {
   }
 }
 
+.project_imgs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  img {
+    width: 30vw;
+  }
+}
+
 .projects {
   background: none;
 
@@ -410,7 +436,7 @@ footer {
     @include btn();
     // border: none;
 
-    margin: 0;
+    margin: 16px;
     padding: 0;
   }
 }
@@ -423,6 +449,7 @@ footer {
 
   img {
     margin-bottom: 40px;
+    height: 80vh;
   }
 
   .strike {
@@ -660,6 +687,13 @@ footer {
     font-size: 24px;
   }
 
+  .lookbook_imgs img,
+  .project_imgs img {
+    width: 40vw;
+    margin: 16px;
+    padding: 0;
+  }
+
   footer div {
     text-align: center;
     margin: 0;
@@ -673,5 +707,12 @@ footer {
 
   .intro img {
     width: 100%;
+  }
+
+  .lookbook_imgs img,
+  .project_imgs img {
+    width: 90vw;
+    margin: 16px;
+    padding: 0;
   }
 }

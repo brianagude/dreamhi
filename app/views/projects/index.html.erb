@@ -21,15 +21,15 @@
 
 <section class="projects">
   <div class="container">
-    <div class="row">
+    <div class="project_imgs">
       <% @projects.each do |project| %>
-          <div class="col-lg-3 col-xs-12 mb-24">
+          <div>
             <%= link_to project_path(project) do %>
               <%= image_tag project.image_1.medium.url %>
             <% end %>
           </div>
           <% if project.image_2.present? %>
-          <div class="col-lg-3 col-xs-12 mb-24">
+          <div>
             <%= link_to project_path(project) do %>
               <%= image_tag project.image_2.medium.url %>
             <% end %>
@@ -37,7 +37,7 @@
           <% end %>
 
             <% if project.image_3.present? %>
-            <div class="col-lg-3 col-xs-12 mb-24">
+            <div>
               <%= link_to project_path(project) do %>
                 <%= image_tag project.image_3.medium.url %>
               <% end %>
@@ -45,7 +45,7 @@
             <% end %>
 
             <% if project.image_4.present? %>
-            <div class="col-lg-3 col-xs-12 mb-24">
+            <div>
               <%= link_to project_path(project) do %>
                 <%= image_tag project.image_4.medium.url %>
               <% end %>
@@ -53,7 +53,7 @@
             <% end %>
 
             <% if project.image_5.present? %>
-            <div class="col-lg-3 col-xs-12 mb-24">
+            <div>
               <%= link_to project_path(project) do %>
                 <%= image_tag project.image_5.medium.url %>
               <% end %>
