@@ -77,6 +77,22 @@ body {
   margin: 120px 24px 0 24px;
 }
 
+body:before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background-image: asset-url("grid4.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 input {
   text-align: left;
   outline: none;
@@ -472,14 +488,14 @@ footer {
 
   .btn {
     width: 50%;
-    height: 48px;
+    // height: 48px;
     display: inline-block;
   }
 
   .navlinks {
     width: 100%;
     margin: auto;
-    @include flex(space-/between);
+    @include flex(space-between);
   }
 }
 
@@ -676,6 +692,10 @@ footer {
 // 11. RESPONSIVE  ==========================================================
 
 @media (max-width: 1024px) {
+  .alert {
+    display: none;
+  }
+
   .mobile {
     display: flex;
   }
@@ -688,6 +708,11 @@ footer {
     font-size: 24px;
   }
 
+  body {
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
   .lookbook_imgs img,
   .project_imgs img {
     width: 40vw;
@@ -695,9 +720,15 @@ footer {
     padding: 0;
   }
 
-  footer div {
-    text-align: center;
-    margin: 0;
+  footer {
+    div {
+      text-align: center;
+      margin: 0;
+    }
+    input[type="email"] {
+      // width: 350px;
+      text-align: left;
+    }
   }
 }
 
@@ -712,7 +743,7 @@ footer {
 
   .lookbook_imgs img,
   .project_imgs img {
-    width: 90vw;
+    width: 80vw;
     margin: 16px;
     padding: 0;
   }
