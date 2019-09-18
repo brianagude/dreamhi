@@ -19,9 +19,11 @@ class Order < ApplicationRecord
 
   def save_and_charge
     if self.valid?
-
-      Stripe::Charge.create(amount: self.total_price, currency: "usd",
-        source: self.stripe_token, description: "Order for " + self.email)
+      Stripe::Charge.create({
+        amount: self.total_price, 
+        currency: "usd",
+        source: self.stripe_token,
+        description: "Order for " + self.email})
 
       self.save
     else

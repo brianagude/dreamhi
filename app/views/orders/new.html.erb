@@ -1,5 +1,5 @@
 <section class="checkout">
-  <%= simple_form_for @order do |f| %>
+  <%= simple_form_for @order, html: { class: 'new_order' } do |f| %>
     <div class="card big">
       <div class="container">
         <div class="row">
@@ -113,7 +113,7 @@
     };
 
     var stripe = Stripe(
-      "<%= Rails.application.credentials[Rails.env.to_sym][:stripe_public_key] %>"
+      "<%= ENV["STRIPE_PUBLIC_KEY"] %>"
     );
 
     Stripe.api_key = stripe
