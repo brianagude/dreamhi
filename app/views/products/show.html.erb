@@ -24,7 +24,7 @@
         <% end %>
       </div>
 
-      <div class=" card col-md-4 col-xs-12 affix desktop">
+      <div class=" card col-md-4 col-xs-12">
         <h4><%= @product.title%></h4>
         <h5 style="line-height:1.75;"><%= number_to_currency @product.price, precision: 0 %></h5>
         <p><%= simple_format @product.description %></p>
@@ -37,7 +37,7 @@
             <br />
               <div class="col-md-6 col-sm-6" style="padding: 0 4px 0 0;">
                 <p><b>Size:</b></p>
-                <%= f.input :size, collection: ["XS", "S", "M","L","XL"], required: true, label: false %>
+                <%= f.input :size, collection: ["XS", "S", "M","L","XL"], selected: "S", required: true, label: false %>
               </div>
               <div class="col-md-6 col-sm-6" style="padding: 0 0 0 4px;">
                 <p><b>Quantity:</b></p>
@@ -49,9 +49,9 @@
 
         <div class='navlinks'>
           <% if @prev %>
-            <%= link_to "Previous", @prev, class: "btn" %>
+            <%= link_to "Prev", @prev, class: "btn" %>
           <% else %>
-            <%= link_to "Previous", '#', :class => "strike btn"%>
+            <%= link_to "Prev", '#', :class => "strike btn"%>
           <% end %>
 
           <% if @next %>
@@ -62,43 +62,7 @@
         </div>
       </div>
 
-      <div class=" card col-md-4 col-xs-12 text-center mobile">
-        <h4><%= @product.title%></h4>
-        <h5 style="line-height:1.75;"><%= number_to_currency @product.price, precision: 0 %></h5>
-        <p><%= simple_format @product.description %></p>
-        <% if @product.description_2.present?%>
-        <p><b><%= simple_format @product.description_2 %></b></p>
-        <% end %>
 
-        <%= simple_form_for [@product, @order_item] do |f|%>
-          <div class="buttons">
-            <br />
-              <div class="col-md-6 col-sm-6" style="padding: 0 4px 0 0;">
-                <p><b>Size:</b></p>
-                <%= f.input :size, collection: ["XS", "S", "M","L","XL"], required: true, label: false %>
-              </div>
-              <div class="col-md-6 col-sm-6" style="padding: 0 0 0 4px;">
-                <p><b>Quantity:</b></p>
-                <%= f.input :quantity, collection: ["1", "2", "3","4","5"], label: false %>
-              </div>
-                <%= f.button :submit, 'Add to Cart'%>
-          </div>
-        <% end %>
-
-        <div class='navlinks'>
-          <% if @prev %>
-            <%= link_to "Previous", @prev, class: "btn" %>
-          <% else %>
-            <%= link_to "Previous", '#', :class => "strike btn"%>
-          <% end %>
-
-          <% if @next %>
-            <%= link_to "Next", @next, class: "btn" %>
-          <% else %>
-            <%= link_to "Next", '#', :class => "strike btn"%>
-          <% end %>
-        </div>
-      </div>
 
     </div>
   </div>

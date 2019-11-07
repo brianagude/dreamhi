@@ -185,15 +185,10 @@ header {
   }
 
   .cart {
-    height: 48px;
-    width: 48px;
+    height: 60px;
+    width: 60px;
     @include flex(center);
   }
-
-  // .btn {
-  //   height: 50px;
-  //   width: 50px;
-  // }
 }
 
 section {
@@ -264,6 +259,8 @@ div.error {
   position: fixed;
   top: 0;
   left: 0;
+
+  z-index: 2;
 }
 
 div.alert {
@@ -512,6 +509,11 @@ footer {
     width: 100%;
   }
 
+  .row {
+    display: flex;
+    align-items: flex-end;
+  }
+
   div {
     margin-bottom: 24px;
     text-align: center;
@@ -726,25 +728,29 @@ footer {
       margin: 0;
     }
     input[type="email"] {
-      // width: 350px;
       text-align: left;
     }
   }
 }
 
 @media (max-width: 900px) {
-  // html {
-  //   font-size: 24px;
-  // }
-
-  .intro img {
-    width: 100%;
-  }
+  .intro img { width: 100%; }
 
   .lookbook_imgs img,
   .project_imgs img {
     width: 80vw;
     margin: 16px;
     padding: 0;
+  }
+}
+
+input[type="submit"] {
+  min-width: 200px; 
+}
+
+@media (max-width: 699px) {
+  input[type="submit"], .btn {
+    width: 100% !important;
+    max-width: 300px; 
   }
 }
