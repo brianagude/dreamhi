@@ -1,8 +1,6 @@
 <section class='product'>
   <div class="container">
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-6 col-sm-12 images">
+      <div class="images">
         <%= image_tag @product.image_1.large.url%>
         <% if @product.image_2.present? %>
           <%= image_tag @product.image_2.large.url %>
@@ -24,9 +22,9 @@
         <% end %>
       </div>
 
-      <div class=" card col-md-4 col-xs-12">
+      <div class=" card">
         <h4><%= @product.title%></h4>
-        <h5 style="line-height:1.75;"><%= number_to_currency @product.price, precision: 0 %></h5>
+        <h5><%= number_to_currency @product.price, precision: 0 %></h5>
         <p><%= simple_format @product.description %></p>
         <% if @product.description_2.present?%>
         <p><b><%= simple_format @product.description_2 %></b></p>
@@ -35,11 +33,11 @@
         <%= simple_form_for [@product, @order_item] do |f|%>
           <div class="buttons">
             <br />
-              <div class="col-md-6 col-sm-6" style="padding: 0 4px 0 0;">
+              <div>
                 <p><b>Size:</b></p>
                 <%= f.input :size, collection: ["XS", "S", "M","L","XL"], selected: "S", required: true, label: false %>
               </div>
-              <div class="col-md-6 col-sm-6" style="padding: 0 0 0 4px;">
+              <div>
                 <p><b>Quantity:</b></p>
                 <%= f.input :quantity, collection: ["1", "2", "3","4","5"], label: false %>
               </div>
@@ -64,6 +62,5 @@
 
 
 
-    </div>
   </div>
 </section>

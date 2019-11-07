@@ -14,97 +14,57 @@
   </head>
 
   <body>
+  <div class="grid-bkgrd">
+    <%= image_tag("grid4.png") %>
+  </div>
     <% if flash[:success].present? %>
-      <div class='success'>
+      <div class='success flash'>
         <%= flash[:success]%>
       </div>
     <% end %>
     <% if flash[:error].present? %>
-      <div class='error'>
+      <div class='error flash'>
         <%= flash[:error]%>
       </div>
     <% end %>
     <% if flash[:alert].present? %>
-      <div class='alert'>
+      <div class='alert flash'>
         <b><%= flash[:alert]%></b>
       </div>
     <% end %>
-    <header>
-      <div class='project-filters'>
-        <%= link_to image_tag('logo-globe.png'), root_path, class: "logo btn"%>
 
-      </div>
-      <div class='search-cart'>
-        <%= link_to 'shop', shop_path, class: "btn"%>
-        <%= link_to cart_path do %>
-          <div class='cart btn'>
-            <%= @current_cart.total_quantity%>
-          </div>
-        <% end %>
+    <header>
+    <div class="container">
+        <%= link_to image_tag('logo-globe.png'), root_path, class: "logo btn"%>
+        <div class='search-cart'>
+          <%= link_to 'shop', shop_path, class: "btn"%>
+          <%= link_to cart_path do %>
+            <div class='cart btn'>
+              <%= @current_cart.total_quantity%>
+            </div>
+          <% end %>
+        </div>
       </div>
     </header>
 
 
 
     <%= yield %>
-    <!-- <div class="background"></div> -->
     <footer>
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom: 24px;">
-            <!-- <h5>Stay In Touch</h5> -->
-            <nav>
-              <%= mail_to "contact@dreamhi.us", 'Email', class: "btn"%>
-              <%= link_to "Instagram", "https://www.instagram.com/dreamhiiii/", target: '_blank', class: "btn"%>
-              <%= link_to "Twitter", "https://www.twitter.com/dreamhiiii/", target: '_blank', class: "btn"%>
-            </nav>
-          <!-- </div>
-          <div class="col-lg-6" style="text-align: right;"> -->
-            <!-- <h5>Stay Updated</h5> -->
-            <form action="https://formspree.io/info@dreamhi.com" method="POST">
-              <input type="email" name="_replyto" placeholder="Your Email" class="btn">
-              <input type="submit" value="Submit" class="btn">
-            </form>
-          </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-              <p><%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%> &mdash; Copyright 2019 Dreamhi</p>
-            </div>
-          </div>
-        </div>
-    </footer>
-
-    <footer class="mobile">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-4 col-sm-4 text-left">
-            <!-- <h5>Stay In Touch</h5> -->
-            <nav>
-              <%= link_to image_tag('instagram.png'), "https://www.instagram.com/dreamhiiii/", target: '_blank', class: "btn"%>
-              <%= link_to image_tag('twitter.png'), "https://www.twitter.com/dreamhiiii/", target: '_blank', class: "btn"%>
-              <%= mail_to "contact@dreamhi.us", image_tag('email.png'), class: "btn"%>
-            </nav>
-          </div>
-          <div class="col-xs-4 col-sm-4 text-center">
-            <p>Copyright 2019 Dreamhi </p>
-            <%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%>
-          </div>
-          <div class="col-xs-4 col-sm-4 text-right">
-            <!-- <h5>Stay Updated</h5> -->
-            <form action="https://formspree.io/contact@dreamhi.us" method="POST">
-              <input type="email" name="_replyto" placeholder="Email" class="btn">
-              <input type="submit" value="Submit" class="btn">
-            </form>
-          </div>
-
-        </div>
+        <nav>
+          <%= mail_to "contact@dreamhi.us", 'Email', class: "btn"%>
+          <%= link_to "Instagram", "https://www.instagram.com/dreamhiiii/", target: '_blank', class: "btn"%>
+          <%= link_to "Twitter", "https://www.twitter.com/dreamhiiii/", target: '_blank', class: "btn"%>
+        </nav>
+        <form action="https://formspree.io/info@dreamhi.com" method="POST">
+          <input type="email" name="_replyto" placeholder="Your Email" class="btn">
+          <input type="submit" value="Submit" class="btn">
+        </form>
+        <p class="bri-text"><%= link_to "Site Created by b.", "https://www.brianagude.com/", target: '_blank'%> &mdash; Copyright 2019 Dreamhi</p>
       </div>
-
-
-
     </footer>
-    <!-- <div class="background"></div> -->
+
     <%= javascript_include_tag 'application' %>
   </body>
 </html>

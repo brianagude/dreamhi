@@ -1,7 +1,6 @@
 <section class="cart">
   <div class="container">
-    <div class="row">
-      <div class="card col-lg-12"style="width: 100%;">
+      <div class="card">
         <h2>Your Cart</h2>
 
         <% if @current_cart.order_items.any? %>
@@ -62,6 +61,5 @@
           <p class="empty">There are no items in your cart</p>
         <% end %>
       </div>
-    </div>
   </div>
 </section>

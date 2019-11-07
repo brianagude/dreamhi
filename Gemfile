@@ -55,7 +55,6 @@ gem 'activeadmin'
 
 gem 'stripe'
 
-gem 'bootstrap-sass', '~> 3.4.1'
 gem 'autoprefixer-rails'
 gem 'figaro'
 
