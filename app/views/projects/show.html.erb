@@ -4,7 +4,7 @@
 
 <section class='project'>
   <div class="container">
-      <div class="images">
+      <div class="images grid">
         <%= image_tag @project.image_1.large.url%>
         <% if @project.image_2.present? %>
           <%= image_tag @project.image_2.large.url%>
@@ -26,7 +26,7 @@
         <% end %>
       </div>
 
-      <div class="card">
+      <div class="card show-card">
           <h4><%= @project.title%></h4>
           <h5 style="font-weight:700;"><%=@project.artist%></h5><br />
           <p><%= simple_format @project.description %></p><br />
@@ -47,3 +47,8 @@
         </div>
     </div>
 </section>
+
+<style>
+.images { padding-bottom: 500px; }
+footer { display: none; }
+</style>
