@@ -1,5 +1,4 @@
 
-// FONTS & MIXINS ==========================================================
 
 @import url("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Space+Mono:400,400i,700,700i");
 @import url("https://fontlibrary.org/face/tex-gyre-adventor");
@@ -112,10 +111,6 @@ $black: #333;
   width: 300px; 
   z-index: -1;
 }
-
-
-
-
 
 .grid-bkgrd{
   position: fixed;
@@ -231,7 +226,6 @@ $black: #333;
 
 .btn { @include btn(); }
 
-@import url('https://fonts.googleapis.com/css?family=Poppins:400|Poppins:400');
 
 html { font-size: 18px; }
 
@@ -318,21 +312,11 @@ header {
   }
 }
 
-// .show-card {
-//   position: fixed;
-//     bottom: 24px;
-//     width: calc(100vw - 32px);
-//     left: 16px;
-//     margin: 0;
-// }
-
 .product-card {
   text-align: left; 
 
   h4, h5 { 
-    // text-align: center;
     text-transform: uppercase;
-    // font-weight: 900;
   }
 }
 
@@ -681,9 +665,7 @@ footer {
   }
 
   @include breakpoint (sm){
-    input[type=email]{ width: 240px;  }
-    // position: absolute; 
-    
+    input[type=email]{ width: 240px;  }    
   }
 
   @include breakpoint (md){
@@ -746,8 +728,6 @@ footer {
     }
 
     input { height: 44px; }
-
-
 
     @include breakpoint (md){
       grid-template-columns: repeat(3, 1fr);
