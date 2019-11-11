@@ -29,8 +29,8 @@ class ProjectsController < ApplicationController
     @projects = Project.where(is_design: true)
   end
 
-  def archive
-    @projects = Project.where(is_archives: true)
+  def archives
+    @projects = Project.where(is_archived: true)
   end
 
   def contact

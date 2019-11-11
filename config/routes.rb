@@ -6,22 +6,23 @@ Rails.application.routes.draw do
   resources :orders
   resource :cart
   resources :projects
+
   resources :products do
     resources :order_items
   end
 
-
-
-
-  get 'info', to: 'projects#info'
-  get 'shop', to: 'products#index'
-  get 'photography', to: 'projects#photography'
-  get 'archives', to: 'projects#archives'
-  get 'design', to: 'projects#design'
-  get 'lookbook', to: 'projects#lookbook'
-  get 'contact', to: 'projects#contact'
-  get 'projects', to: 'projects#projects'
-  get 'all', to: 'projects#all'
-
   root 'projects#index'
+
+  get 'info',                     to: 'projects#info'
+  get 'photography',              to: 'projects#photography'
+
+  get 'archives',                 to: 'projects#archives'
+  
+  get 'design',                   to: 'projects#design'
+  get 'lookbook',                 to: 'projects#lookbook'
+  get 'contact',                  to: 'projects#contact'
+  get 'projects',                 to: 'projects#projects'
+  get 'all',                      to: 'projects#all'
+
+  get 'shop',                     to: 'products#index'
 end
