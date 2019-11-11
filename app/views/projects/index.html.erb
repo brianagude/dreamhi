@@ -1,69 +1,24 @@
 
-<% if @design.present? || @photography.present? || @archive.present?%>
- <section class="none"></section>
-<% else %>
+
 <section class='intro'>
-  <div>
-    <%= image_tag('logo-full.png')%>
+  <div class="container">
+    <div class="image">
+      <%= image_tag('logo-full.png')%>
+    </div>
+    
     <ul>
       <li><%= link_to 'lookbook', lookbook_path, class: "btn"%><%= link_to 'shop', shop_path, class: "btn"%></li>
-      <li><%= link_to 'photography', root_path(is_photography: true), class: "btn"%></li>
-      <li><%= link_to 'design', root_path(is_design: true), class: "btn"%><%= link_to 'archive', root_path(is_archived: true), class: "btn"%></li>
+      <li><%= link_to 'photography', photography_path, class: "btn"%><%= link_to 'all', all_path, class: "btn"%></li>
+      <li><%= link_to 'design', design_path, class: "btn"%><%= link_to 'archive', archives_path, class: "btn"%></li>
       <li><%= link_to 'info', info_path , class: "btn"%><%= link_to 'contact', contact_path , class: "btn"%></li>
     </ul>
-
-  </div>
-</section>
-<% end %>
-
-
-
-
-<section class="projects">
-  <div class="container">
-    <div class="project_imgs">
-      <% @projects.each do |project| %>
-          <div>
-            <%= link_to project_path(project) do %>
-              <%= image_tag project.image_1.medium.url %>
-            <% end %>
-          </div>
-          <% if project.image_2.present? %>
-          <div>
-            <%= link_to project_path(project) do %>
-              <%= image_tag project.image_2.medium.url %>
-            <% end %>
-          </div>
-          <% end %>
-
-            <% if project.image_3.present? %>
-            <div>
-              <%= link_to project_path(project) do %>
-                <%= image_tag project.image_3.medium.url %>
-              <% end %>
-              </div>
-            <% end %>
-
-            <% if project.image_4.present? %>
-            <div>
-              <%= link_to project_path(project) do %>
-                <%= image_tag project.image_4.medium.url %>
-              <% end %>
-              </div>
-            <% end %>
-
-            <% if project.image_5.present? %>
-            <div>
-              <%= link_to project_path(project) do %>
-                <%= image_tag project.image_5.medium.url %>
-              <% end %>
-                </div>
-            <% end %>
-      <% end %>
-    </div>
   </div>
 </section>
 
-<section class="background-text">
-  <%= image_tag("logoglobe.png") %>
-</section>
+
+
+
+
+
+
+

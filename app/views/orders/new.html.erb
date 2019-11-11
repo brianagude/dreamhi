@@ -1,89 +1,40 @@
-<section class="checkout">
-  <%= simple_form_for @order, html: { class: 'new_order' } do |f| %>
-    <div class="card big">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12"  >
-            <h2>Checkout</h2>
-            <div class="col-lg-4 col-sm-6 col-xs-12"  >
-              <h4>Shipping</h4>
-              <div class="col-lg-6 col-xs-12"  >
-                <div >
-                  <%= f.input :first_name, placeholder: 'First Name', label: false %>
-                  </div>
-              </div>
-              <div class="col-lg-6 col-xs-12"  >
-                <div >
-                  <%= f.input :last_name, placeholder: 'Last Name', label: false %>
-                  </div>
-              </div>
-              <div class="col-lg-12"  >
-                <div >
-                  <%= f.input :email, placeholder: 'Email', label: false %><br />
-                  </div>
-              </div>
-              <div class="col-lg-12"  >
-                <div >
-                  <%= f.input :address_1, placeholder: 'Address 1', label: false %>
-                  </div>
-              </div>
-              <div class="col-lg-12"  >
-                <div >
-                  <%= f.input :address_2, placeholder: 'Address 2', label: false %>
-                  </div>
-              </div>
+<section class="checkout mt">
+<%= simple_form_for @order, html: { class: 'new_order' } do |f| %>
+  <h2>Checkout</h2>
+  <div class="shipping card">
+    <h4>Shipping</h4><br>
+    <%= f.input :first_name, placeholder: 'First Name', label: false %>
+    <%= f.input :last_name, placeholder: 'Last Name', label: false %>
+    <%= f.input :email, placeholder: 'Email', label: false %><br />
+    <%= f.input :address_1, placeholder: 'Address 1', label: false %>
+    <%= f.input :address_2, placeholder: 'Address 2', label: false %>
+    <%= f.input :unit, placeholder: 'Apt/Unit', label: false %><br />
+    <%= f.input :postal, placeholder: 'Postal', label: false %>
+    <%= f.input :city, placeholder: 'City', label: false %>
+    <%= f.input :state, placeholder: 'State', label: false %>
+    <%= f.input :country, placeholder: 'Country', label: false, priority: ["US", 'CA']%>
+  </div>
 
-              <div class="col-lg-12 col-sm-12 col-xs-12"  >
-                <div >
-                  <%= f.input :unit, placeholder: 'Apt/Unit', label: false %>
-                  <br />
-                  </div>
-              </div>
-              <div class="col-lg-6 col-sm-6 col-xs-6"  >
-                <div >
-                  <%= f.input :postal, placeholder: 'Postal', label: false %>
-                  </div>
-              </div>
-              <div class="col-lg-6 col-sm-6 col-xs-6"  >
-                <div >
-                  <%= f.input :city, placeholder: 'City', label: false %>
-                  </div>
-              </div>
-              <div class="col-lg-6 col-sm-6 col-xs-6"  >
-                <div >
-                  <%= f.input :state, placeholder: 'State', label: false %>
-                  </div>
-              </div>
-              <div class="col-lg-6 col-sm-6 col-xs-6"  >
-                <div >
-                  <%= f.input :country, placeholder: 'Country', label: false, priority: ["US", 'CA']%>
-                  </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-xs-12"  >
-              <h4>Payment</h4>
-              <div id="card-number" class="input col-lg-8 btn"></div>
-              <div id="card-expiry" class="input col-lg-6 btn"></div>
-              <div id="card-cvc" class="input col-lg-6 btn"></div>
-              <div class="col-lg-12" id="card-errors">
-                <% @order.errors[:stripe_token].each do |message| %>
-                <p class="error"><%= message %></p>
-                <% end %>
-              </div>
-            </div>
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-              <!-- <h4>Submit</h4> -->
-              <p>Standard free shipping on all orders</p>
-              <p>Orders will be processed in 3-5 business days</p>
-              <div class="col-lg-6">
-                <%= f.button :submit, 'Sumbit Order',:style => 'width: 220px;margin-left: -16px;'%>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="payment card">
+    <h4>Payment</h4><br>
+    <div id="card-number" class="input btn"></div>
+    <div id="card-expiry" class="input btn"></div>
+    <div id="card-cvc" class="input btn"></div>
+    <div id="card-errors">
+      <% @order.errors[:stripe_token].each do |message| %>
+      <p class="error"><%= message %></p>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
+  <div class="submit card">
+    <h4>Complete</h4><br>
+    <p>Standard free shipping on all orders</p>
+    <p>Orders will be processed in 3-5 business days</p>
+    <%= f.button :submit, 'Sumbit Order'%>
+  </div>
+<% end %>
+
   <script>
     var fonts = [
       {

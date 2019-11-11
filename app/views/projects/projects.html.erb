@@ -1,0 +1,53 @@
+<h1>hi</h1>
+
+
+
+<!-->
+<section class="background-text">
+  <%= image_tag("logoglobe.png") %>
+</section>
+
+<section class="projects mt">
+  <div class="container">
+    <div class="project_imgs grid">
+      <% @projects.each do |project| %>
+          <div>
+            <%= link_to project_path(project) do %>
+              <%= image_tag project.image_1.medium.url %>
+            <% end %>
+          </div>
+          <% if project.image_2.present? %>
+          <div>
+            <%= link_to project_path(project) do %>
+              <%= image_tag project.image_2.medium.url %>
+            <% end %>
+          </div>
+          <% end %>
+
+            <% if project.image_3.present? %>
+            <div>
+              <%= link_to project_path(project) do %>
+                <%= image_tag project.image_3.medium.url %>
+              <% end %>
+              </div>
+            <% end %>
+
+            <% if project.image_4.present? %>
+            <div>
+              <%= link_to project_path(project) do %>
+                <%= image_tag project.image_4.medium.url %>
+              <% end %>
+              </div>
+            <% end %>
+
+            <% if project.image_5.present? %>
+            <div>
+              <%= link_to project_path(project) do %>
+                <%= image_tag project.image_5.medium.url %>
+              <% end %>
+                </div>
+            <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>
