@@ -711,3 +711,47 @@ footer {
   .bri-text:hover {
     text-decoration: underline;
   }
+  .order-summary { text-align: center; }
+
+  .cart-items {
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-gap: 24px; 
+    margin-bottom: 24px; 
+
+    input, select {
+      width: 240px;
+      margin-bottom: 16px; 
+    }
+
+    .btn { width: 240px; }
+    .cart-item { text-align: center; }
+
+    h3 { text-transform: capitalize; }
+    img { max-width: 220px; }
+
+    @include breakpoint (sm){
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+
+  .checkout form {
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-gap: 24px; 
+
+    h2 {
+      display: inline-block;
+      margin-left: 24px; 
+    }
+
+    input { height: 44px; }
+
+
+
+    @include breakpoint (md){
+      grid-template-columns: repeat(3, 1fr);
+      h2 { grid-column: 1/-1; }
+    }
+  }
