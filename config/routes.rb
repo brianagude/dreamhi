@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'lookbook', to: 'projects#lookbook'
   get 'contact', to: 'projects#contact'
   get 'projects', to: 'projects#projects'
+  get 'all', to: 'projects#all'
 
   root 'projects#index'
 end

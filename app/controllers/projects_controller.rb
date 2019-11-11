@@ -13,9 +13,9 @@ class ProjectsController < ApplicationController
     @projects = Project.where(is_team_member: true)
   end
 
-  def projects
-   @projects = Project.all
-  end
+  # def projects
+  #  @projects = Project.all
+  # end
 
   def lookbook
     @projects = Project.where(is_lookbook: true)
@@ -35,6 +35,10 @@ class ProjectsController < ApplicationController
 
   def contact
 
+  end
+
+  def all
+    @projects = Project.all
   end
 
 end

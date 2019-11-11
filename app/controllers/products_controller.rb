@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
-    flash[:alert] = "Free Dreamhi Dice With Every Purchase While Supplies Last"
   end
 
   def show
