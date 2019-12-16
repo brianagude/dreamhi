@@ -20,7 +20,7 @@ class Order < ApplicationRecord
   def save_and_charge
     if self.valid?
       Stripe::Charge.create({
-        amount: self.total_price, 
+        amount: self.total_price.to_int,
         currency: "usd",
         source: self.stripe_token,
         description: "Order for " + self.email})
@@ -43,7 +43,7 @@ class Order < ApplicationRecord
     @total = 0
 
     order_items.each do |item|
-      @total = @total + item.product.price * item.quantity
+      @total = @total + item.product.price * item.quantity * 100
     end
 
     @total
