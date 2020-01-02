@@ -11,13 +11,15 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(form_params)
     @order.add_from_cart(@current_cart)
+    order_status = @order.save_and_charge
 
-    if @order.save_and_charge
+    if order_status == true
       reset_session
       flash[:success] = "Order completed"
       OrderMailer.receipt(@order).deliver_now
       redirect_to order_path(@order)
     else
+      flash[:error] = order_status
       render "new"
     end
 
