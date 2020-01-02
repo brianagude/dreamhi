@@ -82,7 +82,6 @@
       ev.preventDefault();
 
       stripe.createToken(cardNumber).then(function(result) {
-        console.log(result.token.id);
         if (result.error) {
           $("#card-errors").html(result.error.message);
         } else {
